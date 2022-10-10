@@ -40,14 +40,14 @@ h1 {
     margin-left: 100px;
 }
 
-.photographer_section {
+.photographer-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
 }
 
-.photographer_section article {
+.photographer-section article {
     justify-self: center;
     display: flex;
     justify-content: center;
@@ -55,42 +55,42 @@ h1 {
     flex-direction: column;
 }
 
-.photographer_section a {
+.photographer-section a {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.photographer_section .infos {
+.photographer-section .infos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.photographer_section .infos .location {
+.photographer-section .infos .location {
     color: var(--clr-main);
     font-size: 15px;
 }
 
-.photographer_section .infos .tag-line {
+.photographer-section .infos .tag-line {
     font-size: 13px;
     padding-block: 3px;
 }
 
-.photographer_section .infos .price {
+.photographer-section .infos .price {
     color: var(--clr-third);
     font-size: 12px;
 }
 
-.photographer_section article h2 {
+.photographer-section article h2 {
     color: var(--clr-second);
     font-size: 36px;
     white-space: nowrap;
     padding-top: 20px;
 }
 
-.photographer_section article img {
+.photographer-section article img {
     height: 200px;
     width: 200px;
     border-radius: 100%;
