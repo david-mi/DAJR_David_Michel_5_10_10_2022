@@ -30,6 +30,11 @@ header {
     height: 90px;
 }
 
+header a {
+    display: grid;
+    place-items: center;
+}
+
 h1 {
     color: var(--clr-main);
     margin-right: 100px;
