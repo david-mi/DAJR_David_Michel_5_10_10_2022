@@ -1,5 +1,21 @@
 @import url("photographer.css");
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --clr-main: #901C1C;
+    --clr-second: #D3573C;
+    --clr-third: #757575;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
