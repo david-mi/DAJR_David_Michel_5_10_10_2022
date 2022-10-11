@@ -1,33 +1,36 @@
 export function photographerFactory(data) {
-    const { name, portrait, city, country, tagline, price, id } = data
+    const { name, city, country, tagline, price, id, portrait } = data
 
-    const picture = `assets/photographers/${portrait}`
+    const currentPathName = location.pathname.replace(/\/|\..+/g, "")
 
-    function getUserCardDOM() {
-        const linkNode = document.createElement("a")
-        linkNode.href = `/photographer.html?id=${id}`
-        const articleNode = document.createElement("article")
-        const imgNode = document.createElement("img")
-        imgNode.setAttribute("src", picture)
-        const h2Node = document.createElement("h2")
-        h2Node.textContent = name
-
-        const infosNode = document.createElement("p")
-        infosNode.classList.add("infos")
-        const locationNode = document.createElement("strong")
-        locationNode.classList.add("location")
-        locationNode.innerText = `${city}, ${country}`
-        const taglineNode = document.createElement("span")
-        taglineNode.classList.add("tag-line")
-        taglineNode.innerText = tagline
-        const priceNode = document.createElement("span")
-        priceNode.classList.add("price")
-        priceNode.innerText = `${price}€/jour`
-
-        linkNode.append(imgNode, h2Node)
-        infosNode.append(locationNode, taglineNode, priceNode)
-        articleNode.append(linkNode, infosNode)
-        return (articleNode)
+    const photographerHtmlCard = {
+        index: () => (
+            `<article>
+                <a href="/photographer.html?id=${id}">
+                  <img src="assets/photographers/${portrait}">
+                  <h2>${name}</h2>
+                </a>
+                <p class="infos">
+                  <strong class="location">${city}, ${country}</strong>
+                  <span class="tag-line">${tagline}</span>
+                  <span class="price">${price}€/jour</span>
+                </p>
+            </article>`
+        ),
+        photographer: () => (
+            ` <h1>${name}</h1>
+              <p>
+                <strong>${city}, ${country}</strong>
+                <span>${tagline}</span>
+              </p>
+              <img src="assets/photographers/${portrait}" alt=${name}>`
+        )
     }
-    return { name, picture, getUserCardDOM }
+
+    return photographerHtmlCard[currentPathName]()
 }
+
+
+
+
+

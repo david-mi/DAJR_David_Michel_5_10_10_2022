@@ -1,14 +1,16 @@
 import { photographerFactory } from "../factories/photographer.js"
 import getPhotographers from "../utils/getPhotographers.js"
 
-async function displayIndexData(photographers) {
+function displayIndexData(photographers) {
     const photographersSection = document.querySelector(".photographer-section")
+    let photographersSectionHtml = ""
 
     photographers.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer)
-        const userCardDOM = photographerModel.getUserCardDOM()
-        photographersSection.appendChild(userCardDOM)
+        const photographerCardHTML = photographerFactory(photographer)
+        photographersSectionHtml += photographerCardHTML
     })
+
+    photographersSection.insertAdjacentHTML("beforeend", photographersSectionHtml)
 };
 
 async function init() {
