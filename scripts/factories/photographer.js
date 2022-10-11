@@ -20,8 +20,8 @@ export function photographerFactory(data) {
         photographer: () => (
             ` <h1>${name}</h1>
               <p>
-                <strong>${city}, ${country}</strong>
-                <span>${tagline}</span>
+                <strong class="location">${city}, ${country}</strong>
+                <span class="tagline">${tagline}</span>
               </p>
               <img src="assets/photographers/${portrait}" alt=${name}>`
         )
