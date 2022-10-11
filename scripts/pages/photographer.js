@@ -1,10 +1,13 @@
 import { displayModal, closeModal } from "../utils/contactForm.js"
 import getPhotographers from "../utils/getPhotographers.js"
+import { photographerFactory } from "../factories/photographer.js"
 import "../../data/types.js"
 
 const contactButton = document.querySelector(".contact-button")
-contactButton.addEventListener("click", displayModal)
 const closeModalImg = document.querySelector(".modal header img")
+const photographHeader = document.querySelector(".photograph-header")
+
+contactButton.addEventListener("click", displayModal)
 closeModalImg.addEventListener("click", closeModal)
 
 /**
@@ -69,7 +72,7 @@ const getPhotographerData = async () => {
     const photographerId = getPhotographerId()
     const photographer = getPhotographer(photographers, photographerId)
     const photographerMedias = getPhotographerMedias(media, photographerId)
-    console.log({ photographer, photographerMedias })
+    return { photographer, photographerMedias }
   }
   catch (err) {
     console.error(err)
