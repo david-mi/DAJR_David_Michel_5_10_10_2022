@@ -1,22 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --clr-main: #901C1C;
+    --clr-second: #D3573C;
+    --clr-third: #525252;
+}
+
+main {
+    margin: 0 100px;
+}
+
 #contact_modal {
     display: none;
 }
 
 .photograph-header {
+    width: 100%;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    padding-inline: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "title button img"
+        "text button img"
+    ;
 }
 
-.contact-button {
+.photograph-header h1 {
+    grid-area: title;
+    color: var(--clr-second);
+    font-size: 64px;
+    margin: 0;
+    margin-top: 65px;
+    align-self: center;
+}
+
+.photograph-header p {
+    grid-area: text;
+    align-self: flex-start;
+    /* margin-bottom: 50px; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photograph-header p .location {
+    font-size: 24px;
+    color: var(--clr-main);
+}
+
+.photograph-header p .tagline {
+    font-size: 18px;
+    color: var(--clr-third);
+}
+
+
+.photograph-header img {
+    grid-area: img;
+    justify-self: flex-end;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.photograph-header .contact-button {
+    grid-area: button;
+    justify-self: center;
     font-size: 20px;
     font-weight: bold;
     color: white;
     padding: 11px;
+    margin-top: 30px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: var(--clr-main);
     border-radius: 5px;
     cursor: pointer;
 }
