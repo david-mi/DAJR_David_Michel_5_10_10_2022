@@ -80,4 +80,14 @@ const getPhotographerData = async () => {
   }
 }
 
-getPhotographerData()
+function displayPhotographerData(photographer) {
+  const photographerCardHTML = photographerFactory(photographer)
+  photographHeader.insertAdjacentHTML("afterbegin", photographerCardHTML)
+}
+
+async function init() {
+  const { photographer, photographerMedias } = await getPhotographerData()
+  displayPhotographerData(photographer)
+}
+
+init()
