@@ -1,12 +1,7 @@
 import { photographerFactory } from "../factories/photographer.js"
+import getPhotographers from "../utils/getPhotographers.js"
 
-async function getPhotographers() {
-    const response = await fetch("../data/photographers.json")
-    const photographers = await response.json()
-    return photographers
-}
-
-async function displayData(photographers) {
+async function displayIndexData(photographers) {
     const photographersSection = document.querySelector(".photographer-section")
 
     photographers.forEach((photographer) => {
@@ -17,9 +12,8 @@ async function displayData(photographers) {
 };
 
 async function init() {
-    // Récupère les datas des photographes
     const { photographers } = await getPhotographers()
-    displayData(photographers)
+    displayIndexData(photographers)
 };
 
 init()
