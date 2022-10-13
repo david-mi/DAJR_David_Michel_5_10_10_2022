@@ -3,14 +3,11 @@ import getPhotographers from "../utils/getPhotographers.js"
 
 function displayIndexData(photographers) {
     const photographersSection = document.querySelector(".photographer-section")
-    let photographersSectionHtml = ""
 
     photographers.forEach((photographer) => {
-        const photographerCardHTML = photographerFactory(photographer)
-        photographersSectionHtml += photographerCardHTML
+        const photographerHTMLModel = photographerFactory(photographer)
+        photographersSection.insertAdjacentHTML("beforeend", photographerHTMLModel.index())
     })
-
-    photographersSection.insertAdjacentHTML("beforeend", photographersSectionHtml)
 };
 
 async function init() {

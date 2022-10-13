@@ -81,8 +81,8 @@ const getPhotographerData = async () => {
 }
 
 function displayPhotographerData(photographer) {
-  const photographerCardHTML = photographerFactory(photographer)
-  photographHeader.insertAdjacentHTML("afterbegin", photographerCardHTML)
+  const photographerHTMLModel = photographerFactory(photographer)
+  photographHeader.insertAdjacentHTML("afterbegin", photographerHTMLModel.photographer())
 }
 
 async function init() {
