@@ -1,14 +1,17 @@
-import { displayModal, closeModal } from "../utils/contactForm.js"
-import getPhotographers from "../utils/getPhotographers.js"
-import { photographerFactory } from "../factories/photographer.js"
-import "../../data/types.js"
+import { displayModal, closeModal } from "../../utils/contactForm.js"
+import getPhotographers from "../../utils/getPhotographers.js"
+import { photographerFactory } from "../../factories/photographer.js"
+import "./form.js"
+import "../../../data/types.js"
 
+const photographHeader = document.querySelector(".photograph-header")
 const contactButton = document.querySelector(".contact-button")
 const closeModalImg = document.querySelector(".modal header img")
-const photographHeader = document.querySelector(".photograph-header")
+const form = document.querySelector(".modal form")
 
 contactButton.addEventListener("click", displayModal)
 closeModalImg.addEventListener("click", closeModal)
+form.addEventListener("submit", handleSubmit)
 
 /**
  * Gets photographer id from url parameters and returns it as a number
