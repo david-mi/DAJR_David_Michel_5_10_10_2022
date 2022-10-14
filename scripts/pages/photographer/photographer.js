@@ -7,7 +7,7 @@ import "../../../data/types.js"
 
 const photographHeader = document.querySelector(".photograph-header")
 const contactButton = document.querySelector(".contact-button")
-const closeModalImg = document.querySelector(".modal header img")
+const closeModalImg = document.querySelector(".modal header button")
 const form = document.querySelector(".modal form")
 
 contactButton.addEventListener("click", displayModal)

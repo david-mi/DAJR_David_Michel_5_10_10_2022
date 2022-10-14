@@ -115,7 +115,12 @@ main {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+.close-form {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: transparent;
+    border: none;
 }
 
 form {
