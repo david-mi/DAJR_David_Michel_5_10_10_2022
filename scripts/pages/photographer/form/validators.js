@@ -1,5 +1,3 @@
-import { form } from "../constants.js"
-
 const nameEnum = {
   firstName: "prénom",
   lastName: "nom"
@@ -21,7 +19,7 @@ export const validator = {
 
     if (name.length < 2) {
       nameInput.setCustomValidity(`Le ${nameEnum[nameInput.id]} doit faire au minimum 2 caractères`);
-    } else if (/^[a-z-À-ö\s]{2,}$/i.test(name) === false) {
+    } else if (/^[a-zÀ-ö]{2,}[a-z-À-ö\s]*$/i.test(name) === false) {
       nameInput.setCustomValidity(`Le ${nameEnum[nameInput.id]} contient des caractères invalide`);
     }
 
