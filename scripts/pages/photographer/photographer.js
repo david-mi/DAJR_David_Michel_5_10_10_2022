@@ -1,13 +1,13 @@
 import { displayModal, closeModal } from "../../utils/contactForm.js"
 import { getPhotographerData } from "./getters.js"
 import { photographerFactory } from "../../factories/photographer.js"
+import { form } from "./constants.js"
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/form.js"
 import "../../../data/types.js"
 
 const photographHeader = document.querySelector(".photograph-header")
 const contactButton = document.querySelector(".contact-button")
 const closeModalImg = document.querySelector(".modal header button")
-const form = document.querySelector(".modal form")
 
 contactButton.addEventListener("click", displayModal)
 closeModalImg.addEventListener("click", closeModal)

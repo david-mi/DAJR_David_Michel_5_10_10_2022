@@ -1,3 +1,4 @@
+import { form } from "../constants.js"
 import "./types.js"
 const formModalTitleElement = document.querySelector(".modal header h2")
 
