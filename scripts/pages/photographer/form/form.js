@@ -1,3 +1,4 @@
+import "./types.js"
 const formModalTitleElement = document.querySelector(".modal header h2")
 
 export function handleSubmit(event) {
