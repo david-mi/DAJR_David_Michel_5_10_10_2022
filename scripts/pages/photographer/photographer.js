@@ -1,8 +1,7 @@
 import { displayModal, closeModal } from "../../utils/contactForm.js"
 import { getPhotographerData } from "./getters.js"
 import { photographerFactory } from "../../factories/photographer.js"
-import { displayPhotographerNameToForm } from "./form.js"
-import { handleSubmit } from "./form.js"
+import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/form.js"
 import "../../../data/types.js"
 
 const photographHeader = document.querySelector(".photograph-header")
