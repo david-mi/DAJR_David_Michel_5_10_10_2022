@@ -14,9 +14,6 @@ a {
     --clr-third: #525252;
 }
 
-main {
-    margin: 0 100px;
-}
 
 #contact_modal {
     display: none;
@@ -167,4 +164,60 @@ form input {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px;
+}
+
+#medias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+#medias article {
+    min-height: 350px;
+    width: 350px;
+}
+
+#medias img,
+#medias video {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#medias div {
+    font-size: 24px;
+    color: var(--clr-main);
+    height: 60px;
+    padding-top: 10px;
+}
+
+.media-infos {
+    display: flex;
+    align-items: center;
+}
+
+.likes-count {
+    margin-left: auto;
+}
+
+.like-button {
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    margin-left: 7px;
+}
+
+.like-button svg path {
+    transition: 200ms ease-in-out;
+}
+
+.like-button:focus svg path,
+.like-button:hover svg path {
+    fill: #D3573C;
 }
