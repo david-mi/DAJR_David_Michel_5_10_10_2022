@@ -14,12 +14,12 @@ export const validator = {
 
   name({ target: nameInput }) {
     const name = nameInput.value
-
+    const nameRegex = /^[a-zÀ-ö]{2,}[a-z-À-ö\s]*$/i
     nameInput.setCustomValidity("")
 
     if (name.length < 2) {
       nameInput.setCustomValidity(`Le ${nameEnum[nameInput.id]} doit faire au minimum 2 caractères`);
-    } else if (/^[a-zÀ-ö]{2,}[a-z-À-ö\s]*$/i.test(name) === false) {
+    } else if (nameRegex.test(name) === false) {
       nameInput.setCustomValidity(`Le ${nameEnum[nameInput.id]} contient des caractères invalide`);
     }
 
