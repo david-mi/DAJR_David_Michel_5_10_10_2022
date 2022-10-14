@@ -43,7 +43,10 @@
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <button class="close-form">
+        <button
+          class="close-form"
+          aria-label="Fermer le formulaire"
+        >
           <img src="assets/icons/close.svg" />
         </button>
       </header>
@@ -54,6 +57,7 @@
             type="text"
             id="firstName"
             name="firstName"
+            aria-label="Saisissez votre prénom"
             required
           />
           <label for="lastName">Nom</label>
@@ -61,6 +65,7 @@
             type="text"
             id="lastName"
             name="lastName"
+            aria-label="Saisissez votre nom"
             required
           />
           <label for="email">Email</label>
@@ -68,6 +73,7 @@
             type="email"
             id="email"
             name="email"
+            aria-label="Saisissez votre email"
             required
           />
           <label for="message">Message</label>
@@ -75,10 +81,17 @@
             type="text"
             id="message"
             name="message"
+            aria-label="Saisissez votre message"
             required
           />
         </div>
-        <button class="contact-button">Envoyer</button>
+        <button
+          type="submit"
+          class="contact-button"
+          aria-label="Envoyer le formulaire"
+        >
+          Envoyer
+        </button>
       </form>
     </div>
   </div>
