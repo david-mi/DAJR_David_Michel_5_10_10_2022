@@ -74,7 +74,8 @@ main {
     object-fit: cover;
 }
 
-.photograph-header .contact-button {
+.photograph-header .contact-button,
+.modal .contact-button {
     grid-area: button;
     justify-self: center;
     font-size: 20px;
