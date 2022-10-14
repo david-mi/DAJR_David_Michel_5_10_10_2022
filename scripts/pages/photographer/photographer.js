@@ -1,6 +1,7 @@
 import { displayModal, closeModal } from "../../utils/contactForm.js"
 import { getPhotographerData } from "./getters.js"
 import { photographerFactory } from "../../factories/photographer.js"
+import { displayPhotographerNameToForm } from "./form.js"
 import { handleSubmit } from "./form.js"
 import "../../../data/types.js"
 
@@ -21,6 +22,7 @@ function displayPhotographerData(photographer) {
 async function init() {
   const { photographer, photographerMedias } = await getPhotographerData()
   displayPhotographerData(photographer)
+  displayPhotographerNameToForm(photographer.name)
 }
 
 init()
