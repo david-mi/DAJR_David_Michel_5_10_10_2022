@@ -1,4 +1,4 @@
-import { displayModal, closeModal } from "../../utils/contactForm.js";
+import { displayModal, closeModal } from "../../utils/displayForm.js";
 import { getPhotographerData } from "./getters.js";
 import { photographerFactory } from "../../factories/photographer.js";
 import { mediaFactory } from "../../factories/medias.js";

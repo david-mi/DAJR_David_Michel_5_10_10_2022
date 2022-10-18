@@ -1,5 +1,18 @@
-import getPhotographers from "../../utils/getPhotographers.js";
 import { redirectToIndex } from "../../utils/redirectToIndex.js";
+import "../../../data/types.js";
+
+/**
+ * Fetch data from photographers.json
+ * 
+ * @returns {Promise<photographersType>}
+ */
+
+export const getPhotographers = async () => {
+  const response = await fetch("../data/photographers.json");
+  const photographers = await response.json();
+  return photographers;
+};
+
 
 /**
  * Gets photographer id from url parameters and returns it as a number
