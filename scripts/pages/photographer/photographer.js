@@ -3,6 +3,7 @@ import { getPhotographerData } from "./getters.js"
 import { photographerFactory } from "../../factories/photographer.js"
 import { mediaFactory } from "../../factories/medias.js"
 import { form } from "./constants.js"
+import { showStatsPriceElementInfos } from "./likes.js"
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/form.js"
 import "../../../data/types.js"
 
@@ -26,6 +27,7 @@ async function init() {
   displayPhotographerData(photographer)
   displayPhotographerNameToForm(photographer.name)
   displayPhotographerMedias(photographerMedias, photographerMediaFolder)
+  showStatsPriceElementInfos(photographer)
 }
 
 function displayPhotographerMedias(medias, photographerMediaFolder) {
