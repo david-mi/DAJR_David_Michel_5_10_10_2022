@@ -1,1 +1,1 @@
-export const form = document.querySelector(".modal form")
+export const form = document.querySelector(".modal form");

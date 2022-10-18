@@ -1,5 +1,5 @@
-import getPhotographers from "../../utils/getPhotographers.js"
-import { redirectToIndex } from "../../utils/redirectToIndex.js"
+import getPhotographers from "../../utils/getPhotographers.js";
+import { redirectToIndex } from "../../utils/redirectToIndex.js";
 
 /**
  * Gets photographer id from url parameters and returns it as a number
@@ -10,14 +10,14 @@ import { redirectToIndex } from "../../utils/redirectToIndex.js"
  */
 
 const getPhotographerId = () => {
-  const url = new URL(location.href)
-  const photographerId = url.searchParams.get("id")
+  const url = new URL(location.href);
+  const photographerId = url.searchParams.get("id");
 
   if (/^\d+$/.test(photographerId) === false || photographerId === null) {
-    throw new Error("Invalid id")
+    throw new Error("Invalid id");
   }
-  return Number(photographerId)
-}
+  return Number(photographerId);
+};
 
 /**
  * fetch photographers file
@@ -28,17 +28,17 @@ const getPhotographerId = () => {
 
 export const getPhotographerData = async () => {
   try {
-    const { media, photographers } = await getPhotographers()
-    const photographerId = getPhotographerId()
-    const photographer = getPhotographer(photographers, photographerId)
-    const photographerMedias = getPhotographerMedias(media, photographerId)
-    return { photographer, photographerMedias }
+    const { media, photographers } = await getPhotographers();
+    const photographerId = getPhotographerId();
+    const photographer = getPhotographer(photographers, photographerId);
+    const photographerMedias = getPhotographerMedias(media, photographerId);
+    return { photographer, photographerMedias };
   }
   catch (err) {
-    console.error(err)
-    redirectToIndex()
+    console.error(err);
+    redirectToIndex();
   }
-}
+};
 
 /**
  * @param {photographerType[]} photographers 
@@ -47,13 +47,13 @@ export const getPhotographerData = async () => {
  */
 
 const getPhotographer = (photographers, photographerId) => {
-  const findPhotographer = photographers.find((photographers) => photographers.id === photographerId)
+  const findPhotographer = photographers.find((photographers) => photographers.id === photographerId);
   if (findPhotographer === undefined) {
-    throw new Error("Photographer not found")
+    throw new Error("Photographer not found");
   }
 
-  return findPhotographer
-}
+  return findPhotographer;
+};
 
 /**
  * @param {mediaType[]}  medias
@@ -62,5 +62,5 @@ const getPhotographer = (photographers, photographerId) => {
  */
 
 const getPhotographerMedias = (medias, photographerId,) => {
-  return medias.filter((media) => media.photographerId === photographerId)
-}
+  return medias.filter((media) => media.photographerId === photographerId);
+};

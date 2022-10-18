@@ -1,33 +1,33 @@
-import { likeSvgIcon } from "../../icons/heart.js"
+import { likeSvgIcon } from "../../icons/heart.js";
 import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
 
 export const mediaFactory = (data, photographerMediaFolder) => {
-  const { title, likes } = data
+  const { title, likes } = data;
 
   const articleElement = document.createElement("article");
 
   const articleMediaInfosElement = document.createElement("div");
-  articleMediaInfosElement.classList.add("media-infos")
+  articleMediaInfosElement.classList.add("media-infos");
 
-  const mediaTitleElement = document.createElement("p")
-  mediaTitleElement.classList.add("media-name")
-  mediaTitleElement.textContent = title
+  const mediaTitleElement = document.createElement("p");
+  mediaTitleElement.classList.add("media-name");
+  mediaTitleElement.textContent = title;
 
-  const likesCountElement = document.createElement("span")
-  likesCountElement.classList.add("likes-count")
-  likesCountElement.innerText = likes
+  const likesCountElement = document.createElement("span");
+  likesCountElement.classList.add("likes-count");
+  likesCountElement.innerText = likes;
 
-  const likeButton = document.createElement("button")
-  likeButton.setAttribute("type", "button")
-  likeButton.classList.add("like-button")
+  const likeButton = document.createElement("button");
+  likeButton.setAttribute("type", "button");
+  likeButton.classList.add("like-button");
   likeButton.addEventListener("click", () => {
-    updateMediaLikeAndShowIt(data, likesCountElement)
-    updateTotalLikesAndShowIt()
-  })
+    updateMediaLikeAndShowIt(data, likesCountElement);
+    updateTotalLikesAndShowIt();
+  });
 
-  articleElement.append(articleMediaInfosElement)
-  likeButton.insertAdjacentHTML("beforeend", likeSvgIcon)
-  articleMediaInfosElement.append(mediaTitleElement, likesCountElement, likeButton)
+  articleElement.append(articleMediaInfosElement);
+  likeButton.insertAdjacentHTML("beforeend", likeSvgIcon);
+  articleMediaInfosElement.append(mediaTitleElement, likesCountElement, likeButton);
 
   const photographerHtmlModels = {
     image: () => {
@@ -35,10 +35,10 @@ export const mediaFactory = (data, photographerMediaFolder) => {
       <a href="#"> 
         <img src="assets/photographers/${photographerMediaFolder}/${data.image}" />
       </a>
-      `
-      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent)
+      `;
+      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent);
 
-      return articleElement
+      return articleElement;
     },
     video: () => {
       const linkHtmlContent = `
@@ -51,12 +51,12 @@ export const mediaFactory = (data, photographerMediaFolder) => {
           Impossible de charger la vidéo
         </video>
       </a>
-      `
-      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent)
+      `;
+      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent);
 
-      return articleElement
+      return articleElement;
     }
-  }
+  };
 
-  return photographerHtmlModels
-}
+  return photographerHtmlModels;
+};

@@ -1,6 +1,6 @@
-import { photographerFactory } from "../factories/photographer.js"
-import getPhotographers from "../utils/getPhotographers.js"
-import "../../data/types.js"
+import { photographerFactory } from "../factories/photographer.js";
+import getPhotographers from "../utils/getPhotographers.js";
+import "../../data/types.js";
 
 /**
  * Loop through photographers and append photographers cards in the dom
@@ -8,12 +8,12 @@ import "../../data/types.js"
  */
 
 const displayIndexData = (photographers) => {
-    const photographersSection = document.querySelector(".photographer-section")
+    const photographersSection = document.querySelector(".photographer-section");
 
     photographers.forEach((photographer) => {
-        const photographerHTMLModel = photographerFactory(photographer)
-        photographersSection.insertAdjacentHTML("beforeend", photographerHTMLModel.index())
-    })
+        const photographerHTMLModel = photographerFactory(photographer);
+        photographersSection.insertAdjacentHTML("beforeend", photographerHTMLModel.index());
+    });
 };
 
 /**
@@ -22,8 +22,8 @@ const displayIndexData = (photographers) => {
  */
 
 const init = async () => {
-    const { photographers } = await getPhotographers()
-    displayIndexData(photographers)
+    const { photographers } = await getPhotographers();
+    displayIndexData(photographers);
 };
 
-init()
+init();

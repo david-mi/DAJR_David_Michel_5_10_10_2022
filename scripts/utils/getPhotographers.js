@@ -1,4 +1,4 @@
-import "../../data/types.js"
+import "../../data/types.js";
 
 /**
  * Fetch data from photographers.json
@@ -7,9 +7,9 @@ import "../../data/types.js"
  */
 
 const getPhotographers = async () => {
-  const response = await fetch("../data/photographers.json")
-  const photographers = await response.json()
-  return photographers
-}
+  const response = await fetch("../data/photographers.json");
+  const photographers = await response.json();
+  return photographers;
+};
 
-export default getPhotographers
+export default getPhotographers;

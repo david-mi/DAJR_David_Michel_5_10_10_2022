@@ -1,5 +1,5 @@
 export const photographerFactory = (data) => {
-  const { name, city, country, tagline, price, id, portrait } = data
+  const { name, city, country, tagline, price, id, portrait } = data;
 
   const photographerHtmlCard = {
     index: () => (
@@ -23,9 +23,9 @@ export const photographerFactory = (data) => {
         </p>
         <img src="assets/photographers/${portrait}" alt=${name}>`
     )
-  }
+  };
 
-  return photographerHtmlCard
+  return photographerHtmlCard;
 }
 
 
