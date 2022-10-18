@@ -24,5 +24,13 @@
 * }}
 */
 
+/**
+ * @typedef photographersType
+ * @type {{
+ *  photographers: Array<photographerType>,
+ *  media: Array<mediaType>
+ * }}
+ */
+
 
 
