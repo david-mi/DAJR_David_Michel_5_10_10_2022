@@ -4,7 +4,7 @@ import { form } from "../pages/photographer/constants.js"
  * Changing display mode of contact modal to block
  */
 
-export function displayModal() {
+export const displayModal = () => {
     const modal = document.getElementById("contact_modal")
     modal.style.display = "block"
 }
@@ -14,7 +14,7 @@ export function displayModal() {
  * reseting form inputs
  */
 
-export function closeModal() {
+export const closeModal = () => {
     const modal = document.getElementById("contact_modal")
     modal.style.display = "none"
     form.reset()

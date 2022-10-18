@@ -7,7 +7,7 @@ import "../../data/types.js"
  * @param {photographersType} photographers 
  */
 
-function displayIndexData(photographers) {
+const displayIndexData = (photographers) => {
     const photographersSection = document.querySelector(".photographer-section")
 
     photographers.forEach((photographer) => {
@@ -21,7 +21,7 @@ function displayIndexData(photographers) {
  * Gets photographers data and append it
  */
 
-async function init() {
+const init = async () => {
     const { photographers } = await getPhotographers()
     displayIndexData(photographers)
 };

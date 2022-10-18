@@ -21,19 +21,18 @@ inputs.forEach(input => {
  * @param {string} photographer photographer's name
  */
 
-export function displayPhotographerNameToForm(photographer) {
+export const displayPhotographerNameToForm = (photographer) => {
   formModalTitleElement.innerText += ` ${photographer}`
 }
-
 
 /**
  * Submit form and check if fields are valid
  * if yes, making an {@link formBodyType} object with input values
  * 
- * @param {Event} event 
+ * @param {SubmitEvent} event 
  */
 
-export function handleSubmit(event) {
+export const handleSubmit = (event) => {
   event.preventDefault()
   const isFormValid = form.reportValidity()
 

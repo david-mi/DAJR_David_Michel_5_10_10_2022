@@ -1,7 +1,7 @@
 import { likeSvgIcon } from "../../icons/heart.js"
 import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
 
-export function mediaFactory(data, photographerMediaFolder) {
+export const mediaFactory = (data, photographerMediaFolder) => {
   const { title, likes } = data
 
   const articleElement = document.createElement("article");

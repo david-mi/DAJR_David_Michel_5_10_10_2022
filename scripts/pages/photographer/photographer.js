@@ -22,7 +22,7 @@ form.addEventListener("submit", handleSubmit)
  * @param {photographerType} photographer 
  */
 
-function displayPhotographerData(photographer) {
+const displayPhotographerData = (photographer) => {
   const photographerHTMLModel = photographerFactory(photographer)
   photographHeader.insertAdjacentHTML("afterbegin", photographerHTMLModel.photographer())
 }
@@ -36,7 +36,7 @@ function displayPhotographerData(photographer) {
  * @param {string} photographerMediaFolder 
  */
 
-function displayPhotographerMedias(medias, photographerMediaFolder) {
+const displayPhotographerMedias = (medias, photographerMediaFolder) => {
   medias.forEach(media => {
     const mediaType = "image" in media ? "image" : "video"
 
@@ -53,7 +53,7 @@ function displayPhotographerMedias(medias, photographerMediaFolder) {
  * Display showStatsPriceElementInfos in the dom
  */
 
-async function init() {
+const init = async () => {
   const { photographer, photographerMedias } = await getPhotographerData()
   const photographerMediaFolder = photographer.portrait.replace(/\..+/, "")
   displayPhotographerData(photographer)

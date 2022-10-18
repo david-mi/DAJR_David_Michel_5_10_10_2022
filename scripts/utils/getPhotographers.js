@@ -6,7 +6,7 @@ import "../../data/types.js"
  * @returns {Promise<photographersType>}
  */
 
-async function getPhotographers() {
+const getPhotographers = async () => {
   const response = await fetch("../data/photographers.json")
   const photographers = await response.json()
   return photographers

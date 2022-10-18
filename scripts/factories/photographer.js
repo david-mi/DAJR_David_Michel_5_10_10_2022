@@ -1,4 +1,4 @@
-export function photographerFactory(data) {
+export const photographerFactory = (data) => {
   const { name, city, country, tagline, price, id, portrait } = data
 
   const photographerHtmlCard = {
