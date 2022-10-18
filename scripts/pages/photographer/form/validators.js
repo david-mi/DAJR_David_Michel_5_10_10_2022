@@ -6,10 +6,10 @@ const nameEnum = {
 export const validator = {
 
   /**
-   * Handle firstName and lastName inputs
-   * verifity if input value is longer than 2 caracters and if it matches the given regex
+   * - Handle firstName and lastName inputs validity
+   * - Verify if inputs value is longer than 2 caracters and if it matches the given regex
    * 
-   * @param {InputEvent} param0 
+   * @param {InputEvent} nameInput 
    */
 
   name({ target: nameInput }) {
@@ -26,6 +26,13 @@ export const validator = {
     nameInput.reportValidity()
   },
 
+  /**
+   * - Handle email input validity
+   * - Verify if input value matches the given regex
+   * 
+   * @param {InputEvent} emailInput 
+   */
+
   email({ target: emailInput }) {
     const email = emailInput.value
     const emailRegex = /^[a-zA-Z]+[a-z-A-Z.-_\d]+?@[a-zA-Z]+\.[a-z]{2,4}$/;
@@ -38,6 +45,14 @@ export const validator = {
 
     emailInput.reportValidity()
   },
+
+  /**
+  * - Handle message input validity
+  * - Verify if input value length is equal or longer than 20 characters and 
+  * inferior than 150 characters
+  * 
+  * @param {InputEvent} messageInput 
+  */
 
   message({ target: messageInput }) {
     const message = messageInput.value
