@@ -1,4 +1,18 @@
 import "../../../data/types.js"
+
+/**
+ * increment by 1 the targeted photographer likes count in photographers
+ * and shows it in the associated likesCountElement
+ *
+ * @param {mediaType} mediaReference {@link mediaReference} 
+ * @param {HTMLDivElement} likeCountElement {@link photographersType}
+ */
+
+export const updateMediaLikeAndShowIt = (mediaReference, likeCountElement) => {
+  mediaReference.likes++
+  likeCountElement.innerText = mediaReference.likes
+}
+
 /**
  * Sum each likes count present in photographer card
  * Show the result
@@ -16,4 +30,15 @@ export const showStatsPriceElementInfos = (photographer) => {
     return total += currentMediaLikesNumber
   }, 0)
   totalLikesElement.innerText = totalLikesCounts
+}
+
+/**
+ * Get total likes count shown in the dom
+ * Update the dom value by one
+ */
+
+export const updateTotalLikesAndShowIt = () => {
+  const totalLikesElement = document.querySelector(".total-likes")
+  const totalLikesCounts = Number(totalLikesElement.innerText)
+  totalLikesElement.innerText = totalLikesCounts + 1
 }
