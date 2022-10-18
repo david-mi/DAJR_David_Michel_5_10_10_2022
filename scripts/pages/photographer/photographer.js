@@ -1,10 +1,9 @@
 import { displayModal, closeModal } from "../../utils/displayForm.js";
 import { getPhotographerData } from "./getters.js";
-import { photographerFactory } from "../../factories/photographer.js";
-import { mediaFactory } from "../../factories/medias.js";
+import { mediaFactory, photographerFactory } from "../../factories/index.js";
 import { form } from "./constants.js";
 import { showStatsPriceElementInfos } from "./likes.js";
-import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/form.js";
+import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
 import "../../../data/types.js";
 
 const photographHeader = document.querySelector(".photograph-header");
