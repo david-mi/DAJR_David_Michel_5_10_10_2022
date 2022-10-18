@@ -35,7 +35,7 @@ function displayPhotographerMedias(medias, photographerMediaFolder) {
     const mediaType = "image" in media ? "image" : "video"
 
     const photographerHtmlModels = mediaFactory(media, photographerMediaFolder)
-    photographerMedias.insertAdjacentHTML("afterbegin", photographerHtmlModels[mediaType]())
+    photographerMedias.insertAdjacentElement("afterbegin", photographerHtmlModels[mediaType]())
   })
 }
 
