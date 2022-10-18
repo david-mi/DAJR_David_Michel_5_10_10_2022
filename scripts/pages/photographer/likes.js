@@ -1,16 +1,28 @@
 import "../../../data/types.js";
 
 /**
- * increment by 1 the targeted photographer likes count in photographers
- * and shows it in the associated likesCountElement
+ * - increment by 1 the targeted photographer likes count in photographers
+ * if the user did not like the media already, else it decrement the value by one
+ * - Shows the value in the associated likesCountElement
  *
  * @param {mediaType} mediaReference {@link mediaReference} 
  * @param {HTMLDivElement} likeCountElement {@link photographersType}
+ * @param {boolean} isMediaLiked has user already liked the media
  */
 
-export const updateMediaLikeAndShowIt = (mediaReference, likeCountElement) => {
-  mediaReference.likes++;
+export const updateMediaLikeAndShowIt = (mediaReference, likeCountElement, isMediaLiked) => {
+  if (isMediaLiked === true) {
+    mediaReference.likes--;
+    isMediaLiked = false;
+
+  } else {
+    mediaReference.likes++;
+    isMediaLiked = true;
+  }
+
   likeCountElement.innerText = mediaReference.likes;
+
+  return isMediaLiked;
 };
 
 /**
@@ -34,11 +46,18 @@ export const showStatsPriceElementInfos = (photographer) => {
 
 /**
  * Get total likes count shown in the dom
- * Update the dom value by one
+ * if the user has already liked the media, decrement the total count by one
+ * if not, increment the total count by one
+ * 
+ * @param {boolean} isMediaLiked has user already liked the media
  */
 
-export const updateTotalLikesAndShowIt = () => {
+export const updateTotalLikesAndShowIt = (isMediaLiked) => {
   const totalLikesElement = document.querySelector(".total-likes");
   const totalLikesCounts = Number(totalLikesElement.innerText);
-  totalLikesElement.innerText = totalLikesCounts + 1;
+  if (isMediaLiked === true) {
+    totalLikesElement.innerText = totalLikesCounts + 1;
+  } else {
+    totalLikesElement.innerText = totalLikesCounts - 1;
+  }
 };

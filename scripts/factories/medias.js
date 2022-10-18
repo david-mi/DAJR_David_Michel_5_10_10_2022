@@ -3,6 +3,7 @@ import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/ph
 
 export const mediaFactory = (data, photographerMediaFolder) => {
   const { title, likes } = data;
+  let isMediaLiked = false;
 
   const articleElement = document.createElement("article");
 
@@ -21,8 +22,8 @@ export const mediaFactory = (data, photographerMediaFolder) => {
   likeButton.setAttribute("type", "button");
   likeButton.classList.add("like-button");
   likeButton.addEventListener("click", () => {
-    updateMediaLikeAndShowIt(data, likesCountElement);
-    updateTotalLikesAndShowIt();
+    isMediaLiked = updateMediaLikeAndShowIt(data, likesCountElement, isMediaLiked);
+    updateTotalLikesAndShowIt(isMediaLiked);
   });
 
   articleElement.append(articleMediaInfosElement);
