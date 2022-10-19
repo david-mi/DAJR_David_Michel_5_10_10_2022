@@ -14,11 +14,20 @@ a {
     --clr-third: #525252;
 }
 
+.overflow {
+    overflow-y: hidden;
+}
 
 #contact_modal {
     display: none;
     position: fixed;
     inset: 0;
+    place-items: center;
+    overflow-y: scroll;
+}
+
+#contact_modal.display-modal {
+    display: grid;
 }
 
 .photograph-header {
@@ -95,19 +104,16 @@ a {
 }
 
 .modal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 15px 35px 35px 35px;
-    margin: auto;
+    margin: 5% auto;
 }
 
 .modal header {
@@ -125,6 +131,7 @@ a {
     font-size: 64px;
     font-weight: normal;
     margin-bottom: 20px;
+    margin-right: 40px;
 }
 
 .close-form {

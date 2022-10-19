@@ -6,7 +6,8 @@ import { form } from "../pages/photographer/constants.js";
 
 export const displayModal = () => {
     const modal = document.getElementById("contact_modal");
-    modal.style.display = "block";
+    modal.classList.add("display-modal");
+    document.body.classList.add("overflow");
 };
 
 /**
@@ -16,6 +17,7 @@ export const displayModal = () => {
 
 export const closeModal = () => {
     const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    modal.classList.remove("display-modal");
+    document.body.classList.remove("overflow");
     form.reset();
 };
