@@ -1,5 +1,5 @@
 import { photographerFactory } from "../../factories/photographer.js";
-import { getPhotographers } from "../photographer/getters.js";
+import { getPhotographersApiData } from "../../utils/api.js";
 import "../../../data/types.js";
 
 /**
@@ -22,7 +22,7 @@ const displayIndexData = (photographers) => {
  */
 
 const init = async () => {
-    const { photographers } = await getPhotographers();
+    const { photographers } = await getPhotographersApiData();
     displayIndexData(photographers);
 };
 
