@@ -1,0 +1,22 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/styles/scss:src/styles/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-mi/DAJR_David_Michel_6_10_10_2022.git"
+  },
+  "author": "david-mi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-mi/DAJR_David_Michel_6_10_10_2022/issues"
+  },
+  "homepage": "https://github.com/david-mi/DAJR_David_Michel_6_10_10_2022#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
+}

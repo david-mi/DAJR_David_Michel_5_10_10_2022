@@ -1,0 +1,35 @@
+:root {
+  --clr-main: #901c1c;
+  --clr-second: #d3573c;
+  --clr-third: #757575;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0 auto;
+  max-width: 1240px;
+}
+
+header .logo {
+  height: 80px;
+  margin-left: 100px;
+}
+
+button {
+  transition: 300ms ease-in-out;
+}
+
+button:not(.like-button):focus,
+button:not(.like-button):hover {
+  background-color: #d3573c;
+}
