@@ -4,6 +4,7 @@ import { mediaFactory, photographerFactory } from "../../factories/index.js";
 import { form } from "./constants.js";
 import { showStatsPriceElementInfos } from "./likes.js";
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
+import { displayphotographerLightbox } from "./lightbox/lightbox.js";
 import "../../../data/types.js";
 
 const photographHeader = document.querySelector(".photograph-header");
@@ -57,6 +58,7 @@ const init = async () => {
   displayPhotographerNameToForm(photographer.name);
   displayPhotographerMedias(photographerMedias, photographerMediaFolder);
   showStatsPriceElementInfos(photographer);
+  displayphotographerLightbox(photographerMedias, photographerMediaFolder);
 };
 
 init();

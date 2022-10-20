@@ -1,6 +1,7 @@
 import { likeSvgIcon } from "../../icons/heart.js";
 import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
+import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 
 export const mediaFactory = (media, photographerMediaFolder, index) => {
   let isMediaLiked = false;
@@ -49,6 +50,7 @@ export const mediaFactory = (media, photographerMediaFolder, index) => {
 function handleMedias(event, index) {
   event.preventDefault();
   const lightBoxMediaInfosContainerElements = document.querySelectorAll(".media-infos-container");
+  document.addEventListener("keydown", handleKeydown);
 
   lightboxMediaContainer.dataset.idcurrent = index;
   lightboxContainer.classList.remove("hide-media");
