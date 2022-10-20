@@ -1,6 +1,6 @@
 import { photographerFactory } from "../../factories/photographer.js";
 import { getPhotographersApiData } from "../../utils/api.js";
-import "../../../data/types.js";
+import "../../data/types.js";
 
 /**
  * Loop through photographers and append photographers cards in the dom

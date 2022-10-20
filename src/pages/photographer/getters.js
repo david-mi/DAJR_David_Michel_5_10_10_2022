@@ -1,5 +1,5 @@
 import { redirectToIndex } from "../../utils/redirectToIndex.js";
-import "../../../data/types.js";
+import "../../data/types.js";
 import { getPhotographersApiData } from "../../utils/api.js";
 
 /**

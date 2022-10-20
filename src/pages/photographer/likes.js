@@ -1,4 +1,4 @@
-import "../../../data/types.js";
+import "../../data/types.js";
 
 /**
  * - increment by 1 the targeted photographer likes count in photographers

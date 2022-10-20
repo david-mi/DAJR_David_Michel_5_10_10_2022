@@ -5,7 +5,7 @@ import { form } from "./constants.js";
 import { showStatsPriceElementInfos } from "./likes.js";
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
 import { displayphotographerLightbox } from "./lightbox/lightbox.js";
-import "../../../data/types.js";
+import "../../data/types.js";
 
 const photographHeader = document.querySelector(".photograph-header");
 const photographerMedias = document.getElementById("medias");

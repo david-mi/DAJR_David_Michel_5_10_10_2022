@@ -5,7 +5,7 @@
  */
 
 export const getPhotographersApiData = async () => {
-  const response = await fetch("data/photographers.json");
+  const response = await fetch("src/data/photographers.json");
   const photographers = await response.json();
   return photographers;
 };
