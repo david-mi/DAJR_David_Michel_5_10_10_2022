@@ -1,4 +1,4 @@
-import { likeSvgIcon } from "../../icons/heart.js";
+import { likeSvgIcon } from "../icons/heart.js";
 import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
