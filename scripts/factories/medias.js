@@ -1,11 +1,62 @@
 import { likeSvgIcon } from "../../icons/heart.js";
 import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
+import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 
-export const mediaFactory = (data, photographerMediaFolder) => {
-  const { title, likes } = data;
+export const mediaFactory = (media, photographerMediaFolder, index) => {
   let isMediaLiked = false;
+  const mediaType = "image" in media ? "image" : "video";
 
-  const articleElement = document.createElement("article");
+  const baseArticleElement = createArticleBaseElement(media, isMediaLiked);
+
+  const photographerHtmlModels = {
+    image: () => {
+      const mediaLink = document.createElement("a");
+      const imgHtmlElement = `<img src="assets/photographers/${photographerMediaFolder}/${media.image}" />`;
+      mediaLink.href = "#";
+      mediaLink.addEventListener("click", (event) => {
+        handleMedias(event, index);
+      });
+
+      mediaLink.insertAdjacentHTML("beforeend", imgHtmlElement);
+      baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
+      return baseArticleElement;
+    },
+    video: () => {
+      const mediaLink = document.createElement("a");
+      const videoHtmlElement = `
+        <video>
+          <source
+            src="assets/photographers/${photographerMediaFolder}/${media.video}" 
+            type="video/mp4" 
+          />
+          Impossible de charger la vidéo
+        </video>
+      `;
+      mediaLink.href = "#";
+      mediaLink.addEventListener("click", (event) => {
+        handleMedias(event, index);
+      });
+
+      mediaLink.insertAdjacentHTML("beforeend", videoHtmlElement);
+      baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
+      return baseArticleElement;
+    }
+  };
+
+  return photographerHtmlModels[mediaType]();
+};
+
+function handleMedias(event, index) {
+  event.preventDefault();
+  const lightBoxMediaInfosContainerElements = document.querySelectorAll(".media-infos-container");
+
+  lightboxMediaContainer.dataset.idcurrent = index;
+  lightboxContainer.classList.remove("hide-media");
+  lightBoxMediaInfosContainerElements[index].classList.remove("hide-media");
+}
+
+function createArticleBaseElement({ title, likes }, isMediaLiked) {
+  const baseArticleElement = document.createElement("article");
 
   const articleMediaInfosElement = document.createElement("div");
   articleMediaInfosElement.classList.add("media-infos");
@@ -22,42 +73,13 @@ export const mediaFactory = (data, photographerMediaFolder) => {
   likeButton.setAttribute("type", "button");
   likeButton.classList.add("like-button");
   likeButton.addEventListener("click", () => {
-    isMediaLiked = updateMediaLikeAndShowIt(data, likesCountElement, isMediaLiked);
+    isMediaLiked = updateMediaLikeAndShowIt(media, likesCountElement, isMediaLiked);
     updateTotalLikesAndShowIt(isMediaLiked);
   });
 
-  articleElement.append(articleMediaInfosElement);
+  baseArticleElement.append(articleMediaInfosElement);
   likeButton.insertAdjacentHTML("beforeend", likeSvgIcon);
   articleMediaInfosElement.append(mediaTitleElement, likesCountElement, likeButton);
 
-  const photographerHtmlModels = {
-    image: () => {
-      const linkHtmlContent = `
-      <a href="#"> 
-        <img src="assets/photographers/${photographerMediaFolder}/${data.image}" />
-      </a>
-      `;
-      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent);
-
-      return articleElement;
-    },
-    video: () => {
-      const linkHtmlContent = `
-      <a href="#"> 
-        <video>
-          <source
-            src="assets/photographers/${photographerMediaFolder}/${data.video}" 
-            type="video/mp4" 
-          />
-          Impossible de charger la vidéo
-        </video>
-      </a>
-      `;
-      articleElement.insertAdjacentHTML("afterbegin", linkHtmlContent);
-
-      return articleElement;
-    }
-  };
-
-  return photographerHtmlModels;
-};
+  return baseArticleElement;
+}

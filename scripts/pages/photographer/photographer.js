@@ -36,11 +36,9 @@ const displayPhotographerData = (photographer) => {
  */
 
 const displayPhotographerMedias = (medias, photographerMediaFolder) => {
-  medias.forEach(media => {
-    const mediaType = "image" in media ? "image" : "video";
-
-    const photographerHtmlModels = mediaFactory(media, photographerMediaFolder);
-    photographerMedias.insertAdjacentElement("afterbegin", photographerHtmlModels[mediaType]());
+  medias.forEach((media, index) => {
+    const photographerHtmlModels = mediaFactory(media, photographerMediaFolder, index);
+    photographerMedias.insertAdjacentElement("beforeend", photographerHtmlModels);
   });
 };
 
