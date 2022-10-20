@@ -55,7 +55,9 @@ function handleMedias(event, index) {
   lightBoxMediaInfosContainerElements[index].classList.remove("hide-media");
 }
 
-function createArticleBaseElement({ title, likes }, isMediaLiked) {
+function createArticleBaseElement(media, isMediaLiked) {
+  const { title, likes } = media;
+
   const baseArticleElement = document.createElement("article");
 
   const articleMediaInfosElement = document.createElement("div");
