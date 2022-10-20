@@ -253,3 +253,74 @@ form input {
 .total-likes {
     margin-right: 5px;
 }
+
+.lightbox-container {
+    position: fixed;
+    overflow-y: scroll;
+    inset: 0;
+    background-color: white;
+    display: grid;
+    place-items: center;
+}
+
+.lightbox {
+    max-width: 1253px;
+    width: 100%;
+    max-height: 800px;
+    height: 100%;
+    border: solid 2px red;
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        ". media close"
+        "previous media next"
+        ". media ."
+    ;
+}
+
+.lightbox img,
+.lightbox video {
+    height: 80%;
+    width: auto;
+    object-fit: cover;
+}
+
+.lightbox-media-container {
+    grid-area: media;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: pink;
+    overflow: hidden;
+}
+
+.media-infos-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-lightbox {
+    grid-area: close;
+    align-self: flex-start;
+}
+
+.previous-media {
+    grid-area: previous;
+}
+
+.next-media {
+    grid-area: next;
+}
+
+
+.hide-media {
+    display: none;
+}
