@@ -1,0 +1,52 @@
+#medias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin-top: 50px;
+  gap: 30px;
+
+  article {
+    min-height: 350px;
+    width: 350px;
+  }
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .media-infos {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: var(--clr-main);
+    height: 60px;
+    padding-top: 10px;
+
+    .likes-count {
+      margin-left: auto;
+    }
+
+    .like-button {
+      display: grid;
+      place-items: center;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+      margin-left: 7px;
+
+      svg path {
+        transition: 200ms ease-in-out;
+      }
+
+      &:focus svg path,
+      &:hover svg path {
+        fill: #d3573c;
+      }
+    }
+  }
+}

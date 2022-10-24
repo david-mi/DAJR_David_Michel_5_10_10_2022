@@ -1,2 +1,10 @@
-@use "./photographers";
 @use "../../base/base";
+@use "./photographers";
+@use "../../common/header";
+@use "./contact-button";
+@use "./photograph-header";
+@use "./modal";
+@use "./form";
+@use "./medias";
+@use "./lightbox";
+@use "./stats-price";

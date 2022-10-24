@@ -1,0 +1,24 @@
+.stats-price__container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  right: 30px;
+  width: 376px;
+  height: 54px;
+  background-color: var(--clr-second);
+  font-size: 24px;
+  color: black;
+  padding-inline: 34px;
+  border-radius: 5px 5px 0 0;
+
+  .total-likes__container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .total-likes {
+    margin-right: 5px;
+  }
+}
