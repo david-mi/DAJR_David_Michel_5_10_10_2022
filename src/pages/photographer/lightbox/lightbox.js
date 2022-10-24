@@ -9,13 +9,20 @@ nextMediaButton.addEventListener("click", () => handleMediaDisplay().next());
 previousMediaButton.addEventListener("click", () => handleMediaDisplay().previous());
 closeLightboxButton.addEventListener("click", handleCloseLightbox);
 
-export function handleKeydown({ key }) {
-  const keys = {
-    "ArrowRight": () => handleMediaDisplay().next(),
-    "ArrowLeft": () => handleMediaDisplay().previous()
-  };
+/**
+ * Handle pressed keys to trigger next or previous media in lightbox
+ * 
+ * @param {KeyboardEvent} key  name of pressed key
+ */
 
-  keys[key]();
+export function handleKeydown({ key }) {
+  if (key === "ArrowRight") {
+    handleMediaDisplay().next();
+  }
+
+  if (key === "ArrowLeft") {
+    handleMediaDisplay().previous();
+  }
 }
 
 function getMediaContainerDataId(lightboxMediaContainer) {
