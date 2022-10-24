@@ -193,6 +193,25 @@ form .contact-button {
   margin-top: 0;
 }
 
+.sort-menu-container {
+  margin: 30px 20px 0;
+}
+.sort-menu-container label {
+  font-weight: bold;
+  margin-right: 25px;
+}
+.sort-menu-container select {
+  background-color: var(--clr-main);
+  font-size: 1.2rem;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+}
+.sort-menu-container select option {
+  height: 30px;
+  padding: 20px;
+}
+
 #medias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
