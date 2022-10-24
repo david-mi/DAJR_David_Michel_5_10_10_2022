@@ -26,8 +26,8 @@ export const updateMediaLikeAndShowIt = (mediaReference, likeCountElement, isMed
 };
 
 /**
- * Sum each likes count present in photographer card
- * Show the result
+ * - Sum each likes count present in photographer card
+ * - Show the result in {@link totalLikesElement}
  * @param {photographerType} photographer
  */
 

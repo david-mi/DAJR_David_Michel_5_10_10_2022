@@ -25,9 +25,20 @@ export function handleKeydown({ key }) {
   }
 }
 
+/**
+ * @param {HTMLElement} lightboxMediaContainer 
+ * @returns {number} data-idcurrent from {@link lightboxMediaContainer} converted to number
+ */
+
 function getMediaContainerDataId(lightboxMediaContainer) {
   return Number(lightboxMediaContainer.dataset.idcurrent);
 }
+
+/**
+ * Hide previous showed media in lightbox
+ * 
+ * @return {object} object with methods to show next or previous media from lightbox 
+ */
 
 function handleMediaDisplay() {
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
@@ -35,23 +46,44 @@ function handleMediaDisplay() {
   mediasInfosContainers[mediaContainerId].classList.add("hide-media");
 
   return {
+
+    /**
+     * Decrement mediaContainer id, show the associated media
+     * 
+     * {@link previousId} will determine the previous wich is the media position in medias list
+     * and store it in mediaContainer data-idcurrent attribute
+     */
+
     previous() {
-      let previousId = mediaContainerId === 0
+      const previousId = mediaContainerId === 0
         ? mediasInfosContainers.length - 1
         : mediaContainerId - 1;
 
       lightboxMediaContainer.dataset.idcurrent = previousId;
       mediasInfosContainers[previousId].classList.remove("hide-media");
-      lightboxMediaContainer.dataset.idcurrent = previousId;
     },
+
+    /**
+     * increment mediaContainer id, show associated media
+     * 
+     * {@link nextId} will determine the previous wich is the media position in medias list
+     * and store it in mediaContainer data-idcurrent attribute
+     */
+
     next() {
       const nextId = (mediaContainerId + 1) % mediasInfosContainers.length;
+
       lightboxMediaContainer.dataset.idcurrent = nextId;
       mediasInfosContainers[nextId].classList.remove("hide-media");
-      lightboxMediaContainer.dataset.idcurrent = nextId;
     }
   };
 }
+
+/**
+ * - Hide lightbox medias
+ * - Hide lightbox container 
+ * - Remove keydown listener
+ */
 
 function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
@@ -61,6 +93,13 @@ function handleCloseLightbox() {
 
   document.removeEventListener("keydown", handleKeydown);
 }
+
+/**
+ * Display phototographer lightbox in the DOM
+ * 
+ * @param {mediaType} medias 
+ * @param {string} photographerMediaFolder 
+ */
 
 export const displayphotographerLightbox = (medias, photographerMediaFolder) => {
   medias.forEach((media, index) => {
