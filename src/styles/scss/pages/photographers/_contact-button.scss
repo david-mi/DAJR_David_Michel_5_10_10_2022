@@ -11,5 +11,9 @@
   border: none;
   background-color: var(--clr-main);
   border-radius: 5px;
-  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: #d3573c;
+  }
 }

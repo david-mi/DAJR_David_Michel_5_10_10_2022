@@ -26,9 +26,5 @@ h1 {
 
 button {
   transition: 300ms ease-in-out;
-}
-
-button:not(.like-button):focus,
-button:not(.like-button):hover {
-  background-color: #d3573c;
+  cursor: pointer;
 }
