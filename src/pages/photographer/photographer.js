@@ -4,7 +4,7 @@ import { displayPhotographerData } from "./display.js";
 import { form } from "./constants.js";
 import { displayTotalLikesAndPrice } from "./likes/index.js";
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
-import { sortCallbacks, sortAndDisplayMedias } from "./sortMedias.js";
+import { sortCallbacks, displaySortedMedias } from "./sort/index.js";
 import "../../data/types.js";
 
 const contactButton = document.querySelector(".contact-button");
@@ -29,11 +29,13 @@ const init = async () => {
   sortSelectMenu.addEventListener("change", ({ target }) => {
     const sortOption = target.value;
     const sortCallback = sortCallbacks[sortOption];
-    sortAndDisplayMedias(photographerMedias, sortCallback);
+    const sortedMedias = photographerMedias.sort(sortCallback);
+    displaySortedMedias(sortedMedias);
   });
   displayPhotographerData(photographer);
   displayPhotographerNameToForm(photographer.name);
-  sortAndDisplayMedias(photographerMedias, sortCallbacks.popularity);
+  const sortedByPopularityMedias = photographerMedias.sort(sortCallbacks.popularity);
+  displaySortedMedias(sortedByPopularityMedias);
   displayTotalLikesAndPrice(photographer);
 };
 
