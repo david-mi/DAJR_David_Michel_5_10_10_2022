@@ -102,6 +102,8 @@ function handleCloseLightbox() {
  */
 
 export const displayphotographerLightbox = (medias, photographerMediaFolder) => {
+  lightboxMediaContainer.innerHTML = "";
+
   medias.forEach((media, index) => {
     const lightboxMediaHtml = lightBoxFactory(media, photographerMediaFolder, index);
     lightboxMediaContainer.insertAdjacentHTML("beforeend", lightboxMediaHtml);
