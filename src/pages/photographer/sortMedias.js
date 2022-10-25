@@ -7,45 +7,22 @@ import { displayPhotographerMedias } from "./display.js";
  * @param {mediaType} medias 
  */
 
-const sortByDate = (medias, mediaFolder) => {
-  const sortedMediasByDate = medias.sort((a, b) => {
-    return Date.parse(a.date) - Date.parse(b.date);
-  });
 
-  displayPhotographerMedias(sortedMediasByDate, mediaFolder);
-  displayphotographerLightbox(sortedMediasByDate, mediaFolder);
-};
-
-/**
- * 
- * @param {mediaType} medias 
- */
-
-const sortByTitle = (medias, mediaFolder) => {
-  const sortedMediasByTitle = medias.sort((a, b) => {
-    return a.title.localeCompare(b.title);
-  });
-
-  displayPhotographerMedias(sortedMediasByTitle, mediaFolder);
-  displayphotographerLightbox(sortedMediasByTitle, mediaFolder);
-};
-
-/**
- * 
- * @param {mediaType} medias 
- */
-
-const sortByPopularity = (medias, mediaFolder) => {
-  const sortedMediasByPopularity = medias.sort((a, b) => {
-    return b.likes - a.likes;
-  });
+export const sortMedias = (medias, mediaFolder, callback) => {
+  const sortedMediasByPopularity = medias.sort(callback);
 
   displayPhotographerMedias(sortedMediasByPopularity, mediaFolder);
   displayphotographerLightbox(sortedMediasByPopularity, mediaFolder);
 };
 
-export const sortMediasBy = {
-  date: sortByDate,
-  popularity: sortByPopularity,
-  title: sortByTitle
+export const sortCallbacks = {
+  date(a, b) {
+    return Date.parse(a.date) - Date.parse(b.date);
+  },
+  popularity(a, b) {
+    return b.likes - a.likes;
+  },
+  title(a, b) {
+    return a.title.localeCompare(b.title);
+  }
 };
