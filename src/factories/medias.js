@@ -3,7 +3,7 @@ import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/ph
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 
-export const mediaFactory = (media, photographerMediaFolder, index) => {
+export const mediaFactory = (media, index) => {
   let isMediaLiked = false;
   const mediaType = "image" in media ? "image" : "video";
 
@@ -12,7 +12,7 @@ export const mediaFactory = (media, photographerMediaFolder, index) => {
   const photographerHtmlModels = {
     image: () => {
       const mediaLink = document.createElement("a");
-      const imgHtmlElement = `<img src="assets/photographers/${photographerMediaFolder}/${media.image}" />`;
+      const imgHtmlElement = `<img src="assets/photographers/${media.photographerId}/${media.image}" />`;
       mediaLink.href = "#";
       mediaLink.addEventListener("click", (event) => {
         handleMedias(event, index);
@@ -27,7 +27,7 @@ export const mediaFactory = (media, photographerMediaFolder, index) => {
       const videoHtmlElement = `
         <video>
           <source
-            src="assets/photographers/${photographerMediaFolder}/${media.video}" 
+            src="assets/photographers/${media.photographerId}/${media.video}" 
             type="video/mp4" 
           />
           Impossible de charger la vidéo

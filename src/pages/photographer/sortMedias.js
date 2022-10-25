@@ -8,11 +8,11 @@ import { displayPhotographerMedias } from "./display.js";
  */
 
 
-export const sortMedias = (medias, mediaFolder, callback) => {
+export const sortMedias = (medias, callback) => {
   const sortedMediasByPopularity = medias.sort(callback);
 
-  displayPhotographerMedias(sortedMediasByPopularity, mediaFolder);
-  displayphotographerLightbox(sortedMediasByPopularity, mediaFolder);
+  displayPhotographerMedias(sortedMediasByPopularity);
+  displayphotographerLightbox(sortedMediasByPopularity);
 };
 
 export const sortCallbacks = {

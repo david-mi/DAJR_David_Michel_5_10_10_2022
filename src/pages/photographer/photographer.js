@@ -25,15 +25,14 @@ form.addEventListener("submit", handleSubmit);
 
 const init = async () => {
   const { photographer, photographerMedias } = await getPhotographerData();
-  const photographerMediaFolder = photographer.portrait.replace(/\..+/, "");
   sortSelectMenu.addEventListener("change", ({ target }) => {
     const choosenOption = target.value;
     const sortCallback = sortCallbacks[choosenOption];
-    sortMedias(photographerMedias, photographerMediaFolder, sortCallback);
+    sortMedias(photographerMedias, sortCallback);
   });
   displayPhotographerData(photographer);
   displayPhotographerNameToForm(photographer.name);
-  sortMedias(photographerMedias, photographerMediaFolder, sortCallbacks.popularity);
+  sortMedias(photographerMedias, sortCallbacks.popularity);
   showStatsPriceElementInfos(photographer);
 };
 

@@ -1,5 +1,5 @@
 
-export const lightBoxFactory = (media, photographerMediaFolder, index) => {
+export const lightBoxFactory = (media, index) => {
   const mediaType = "image" in media ? "image" : "video";
 
   const photographerHtmlModels = {
@@ -8,7 +8,7 @@ export const lightBoxFactory = (media, photographerMediaFolder, index) => {
       <div class="media-infos-container hide-media">
           <img
            data-index=${index}
-           src="assets/photographers/${photographerMediaFolder}/${media.image}" 
+           src="assets/photographers/${media.photographerId}/${media.image}" 
           />
           <p class="media-title">${media.title}</p>
         </div>
@@ -22,7 +22,7 @@ export const lightBoxFactory = (media, photographerMediaFolder, index) => {
       <div class="media-infos-container hide-media">>
           <video controls data-index=${index}>
             <source
-              src="assets/photographers/${photographerMediaFolder}/${media.video}" 
+              src="assets/photographers/${media.photographerId}/${media.video}" 
               type="video/mp4" 
             />
             Impossible de charger la vidéo

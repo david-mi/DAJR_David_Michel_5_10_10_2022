@@ -5,14 +5,13 @@ import { lightBoxFactory } from "../../../factories/index.js";
  * Display phototographer lightbox in the DOM
  * 
  * @param {mediaType} medias 
- * @param {string} photographerMediaFolder 
  */
 
-export const displayphotographerLightbox = (medias, photographerMediaFolder) => {
+export const displayphotographerLightbox = (medias) => {
   lightboxMediaContainer.innerHTML = "";
 
   medias.forEach((media, index) => {
-    const lightboxMediaHtml = lightBoxFactory(media, photographerMediaFolder, index);
+    const lightboxMediaHtml = lightBoxFactory(media, index);
     lightboxMediaContainer.insertAdjacentHTML("beforeend", lightboxMediaHtml);
   });
 };

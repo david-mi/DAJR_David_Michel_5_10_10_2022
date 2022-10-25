@@ -20,13 +20,12 @@ export const displayPhotographerData = (photographer) => {
  * Append element to the dom
  * 
  * @param {mediaType} medias 
- * @param {string} photographerMediaFolder 
  */
 
-export const displayPhotographerMedias = (medias, photographerMediaFolder) => {
+export const displayPhotographerMedias = (medias) => {
   photographerMedias.innerHTML = "";
   medias.forEach((media, index) => {
-    const photographerHtmlModels = mediaFactory(media, photographerMediaFolder, index);
+    const photographerHtmlModels = mediaFactory(media, index);
     photographerMedias.insertAdjacentElement("beforeend", photographerHtmlModels);
   });
 };
