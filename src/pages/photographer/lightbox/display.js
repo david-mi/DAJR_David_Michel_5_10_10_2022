@@ -8,8 +8,6 @@ import { lightBoxFactory } from "../../../factories/index.js";
  */
 
 export const displayphotographerLightbox = (medias) => {
-  lightboxMediaContainer.innerHTML = "";
-
   medias.forEach((media, index) => {
     const lightboxMediaHtml = lightBoxFactory(media, index);
     lightboxMediaContainer.insertAdjacentHTML("beforeend", lightboxMediaHtml);

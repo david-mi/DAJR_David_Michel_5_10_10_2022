@@ -1,6 +1,7 @@
 import "../../data/types.js";
 import { displayphotographerLightbox } from "./lightbox/display.js";
 import { displayPhotographerMedias } from "./display.js";
+import { photographerMediasElement, lightboxMediaContainer } from "./constants.js";
 
 /**
  * 
@@ -8,10 +9,13 @@ import { displayPhotographerMedias } from "./display.js";
  */
 
 
-export const sortMedias = (medias, callback) => {
+export const sortAndDisplayMedias = (medias, callback) => {
   const sortedMediasByPopularity = medias.sort(callback);
 
+  photographerMediasElement.innerHTML = "";
   displayPhotographerMedias(sortedMediasByPopularity);
+
+  lightboxMediaContainer.innerHTML = "";
   displayphotographerLightbox(sortedMediasByPopularity);
 };
 

@@ -1,7 +1,8 @@
 import { photographerFactory, mediaFactory } from "../../factories/index.js";
+import { photographerMediasElement } from "./constants.js";
 
 const photographHeader = document.querySelector(".photograph-header");
-const photographerMedias = document.getElementById("medias");
+
 
 /**
  * Display photographer data in the dom
@@ -23,9 +24,8 @@ export const displayPhotographerData = (photographer) => {
  */
 
 export const displayPhotographerMedias = (medias) => {
-  photographerMedias.innerHTML = "";
   medias.forEach((media, index) => {
     const photographerHtmlModels = mediaFactory(media, index);
-    photographerMedias.insertAdjacentElement("beforeend", photographerHtmlModels);
+    photographerMediasElement.insertAdjacentElement("beforeend", photographerHtmlModels);
   });
 };
