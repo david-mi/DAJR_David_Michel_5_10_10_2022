@@ -121,6 +121,7 @@ header a .logo {
   inset: 0;
   place-items: center;
   overflow-y: scroll;
+  z-index: 99;
 }
 #contact_modal.display-modal {
   display: grid;

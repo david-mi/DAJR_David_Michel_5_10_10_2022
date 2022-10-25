@@ -4,6 +4,7 @@
   inset: 0;
   place-items: center;
   overflow-y: scroll;
+  z-index: 99;
 
   &.display-modal {
     display: grid;
