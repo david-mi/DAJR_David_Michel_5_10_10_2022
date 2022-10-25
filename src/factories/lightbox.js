@@ -1,3 +1,10 @@
+import "../data/types.js";
+
+/**
+ * @param {mediaType} media 
+ * @param {number} index current position in medias array
+ * @returns {string} html string to display
+ */
 
 export const lightBoxFactory = (media, index) => {
   const mediaType = "image" in media ? "image" : "video";

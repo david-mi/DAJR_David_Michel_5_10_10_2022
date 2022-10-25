@@ -1,5 +1,11 @@
-export const photographerFactory = (data) => {
-  const { name, city, country, tagline, price, id, portrait } = data;
+/**
+ * @param {photographerType} photographer 
+ * @param {number} index current position in medias array
+ * @returns {string} html string to display
+ */
+
+export const photographerFactory = (photographer) => {
+  const { name, city, country, tagline, price, id, portrait } = photographer;
 
   const photographerHtmlCard = {
     index: () => (

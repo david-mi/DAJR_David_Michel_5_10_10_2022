@@ -3,6 +3,12 @@ import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/ph
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 
+/**
+ * @param {mediaType} media 
+ * @param {number} index current position in medias array
+ * @returns {HTMLElement} html element to display
+ */
+
 export const mediaFactory = (media, index) => {
   let isMediaLiked = false;
   const mediaType = "image" in media ? "image" : "video";
