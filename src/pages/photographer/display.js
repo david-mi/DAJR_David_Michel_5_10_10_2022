@@ -3,7 +3,6 @@ import { photographerMediasElement } from "./constants.js";
 
 const photographHeader = document.querySelector(".photograph-header");
 
-
 /**
  * Display photographer data in the dom
  * 

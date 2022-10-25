@@ -1,11 +1,11 @@
+import "../../data/types.js";
 import { displayModal, closeModal } from "../../utils/displayForm.js";
 import { getPhotographerData } from "./getters.js";
 import { displayPhotographerData } from "./display.js";
-import { form } from "./constants.js";
 import { displayTotalLikesAndPrice } from "./likes/index.js";
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
 import { sortCallbacks, displaySortedMedias } from "./sort/index.js";
-import "../../data/types.js";
+import { form } from "./constants.js";
 
 const contactButton = document.querySelector(".contact-button");
 const closeModalImg = document.querySelector(".modal header button");

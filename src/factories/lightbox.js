@@ -13,12 +13,12 @@ export const lightBoxFactory = (media, index) => {
     image: () => {
       const linkHtmlContent = `
       <div class="media-infos-container hide-media">
-          <img
-           data-index=${index}
-           src="assets/photographers/${media.photographerId}/${media.image}" 
-          />
-          <p class="media-title">${media.title}</p>
-        </div>
+        <img
+          data-index=${index}
+          src="assets/photographers/${media.photographerId}/${media.image}" 
+        />
+        <p class="media-title">${media.title}</p>
+      </div>
       `;
 
       return linkHtmlContent;
@@ -33,9 +33,9 @@ export const lightBoxFactory = (media, index) => {
               type="video/mp4" 
             />
             Impossible de charger la vidéo
-            </video>
-            <p class="media-title">${media.title}</p>
-        </div>
+          </video>
+          <p class="media-title">${media.title}</p>
+      </div>
       `;
 
       return linkHtmlContent;

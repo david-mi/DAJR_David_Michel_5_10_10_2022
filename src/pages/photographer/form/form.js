@@ -1,6 +1,6 @@
+import "./types.js";
 import { form } from "../constants.js";
 import { validator } from "./validators.js";
-import "./types.js";
 
 const formModalTitleElement = document.querySelector(".modal header h2");
 const inputs = form.querySelectorAll("input[name]");
