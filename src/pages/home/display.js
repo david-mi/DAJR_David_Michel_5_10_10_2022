@@ -1,4 +1,4 @@
-import { photographerFactory } from "../../factories/photographer";
+import { photographerFactory } from "../../factories/photographer.js";
 
 /**
  * Loop through photographers and append photographers cards in the dom
