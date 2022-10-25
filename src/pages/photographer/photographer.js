@@ -2,7 +2,7 @@ import { displayModal, closeModal } from "../../utils/displayForm.js";
 import { getPhotographerData } from "./getters.js";
 import { displayPhotographerData } from "./display.js";
 import { form } from "./constants.js";
-import { showStatsPriceElementInfos } from "./likes.js";
+import { displayTotalLikesAndPrice } from "./likes/index.js";
 import { handleSubmit, displayPhotographerNameToForm } from "../photographer/form/index.js";
 import { sortCallbacks, sortAndDisplayMedias } from "./sortMedias.js";
 import "../../data/types.js";
@@ -34,7 +34,7 @@ const init = async () => {
   displayPhotographerData(photographer);
   displayPhotographerNameToForm(photographer.name);
   sortAndDisplayMedias(photographerMedias, sortCallbacks.popularity);
-  showStatsPriceElementInfos(photographer);
+  displayTotalLikesAndPrice(photographer);
 };
 
 init();

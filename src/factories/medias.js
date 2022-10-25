@@ -1,5 +1,5 @@
 import { likeSvgIcon } from "../icons/heart.js";
-import { updateMediaLikeAndShowIt, updateTotalLikesAndShowIt } from "../pages/photographer/likes.js";
+import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographer/likes/index.js";
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 
@@ -83,8 +83,9 @@ function createArticleBaseElement(media, isMediaLiked) {
   likeButton.setAttribute("type", "button");
   likeButton.classList.add("like-button");
   likeButton.addEventListener("click", () => {
-    isMediaLiked = updateMediaLikeAndShowIt(media, likesCountElement, isMediaLiked);
-    updateTotalLikesAndShowIt(isMediaLiked);
+    isMediaLiked = updateMediaLikes(media, isMediaLiked);
+    likesCountElement.innerText = media.likes;
+    displayUpdatedTotalLikes(isMediaLiked);
   });
 
   baseArticleElement.append(articleMediaInfosElement);
