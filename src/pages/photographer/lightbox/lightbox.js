@@ -1,4 +1,3 @@
-import { lightBoxFactory } from "../../../factories/index.js";
 import { lightboxContainer, lightboxMediaContainer } from "../constants.js";
 
 const nextMediaButton = document.querySelector(".next-media");
@@ -94,18 +93,4 @@ function handleCloseLightbox() {
   document.removeEventListener("keydown", handleKeydown);
 }
 
-/**
- * Display phototographer lightbox in the DOM
- * 
- * @param {mediaType} medias 
- * @param {string} photographerMediaFolder 
- */
 
-export const displayphotographerLightbox = (medias, photographerMediaFolder) => {
-  lightboxMediaContainer.innerHTML = "";
-
-  medias.forEach((media, index) => {
-    const lightboxMediaHtml = lightBoxFactory(media, photographerMediaFolder, index);
-    lightboxMediaContainer.insertAdjacentHTML("beforeend", lightboxMediaHtml);
-  });
-};

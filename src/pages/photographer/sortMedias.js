@@ -1,5 +1,5 @@
 import "../../data/types.js";
-import { displayphotographerLightbox } from "./lightbox/lightbox.js";
+import { displayphotographerLightbox } from "./lightbox/display.js";
 import { displayPhotographerMedias } from "./display.js";
 
 /**
