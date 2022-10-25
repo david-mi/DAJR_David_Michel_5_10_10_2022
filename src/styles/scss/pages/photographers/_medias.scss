@@ -8,15 +8,29 @@
   article {
     min-height: 350px;
     width: 350px;
-  }
 
-  img,
-  video {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
+    a {
+      position: relative;
+      display: block;
+
+      img,
+      video {
+        display: block;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .svg-img {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 
   .media-infos {

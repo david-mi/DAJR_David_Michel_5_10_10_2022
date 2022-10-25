@@ -1,0 +1,1 @@
+export { likeSvgIcon } from "./heart.js";

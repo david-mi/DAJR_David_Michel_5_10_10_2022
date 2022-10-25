@@ -1,4 +1,4 @@
-import { likeSvgIcon } from "../icons/heart.js";
+import { likeSvgIcon } from "../icons/index.js";
 import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographer/likes/index.js";
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
@@ -44,8 +44,14 @@ export const mediaFactory = (media, index) => {
         handleMedias(event, index);
       });
 
+      const svgImgContainer = document.createElement("img");
+      svgImgContainer.classList.add("svg-img");
+      svgImgContainer.src = "/assets/icons/play.svg";
+
       mediaLink.insertAdjacentHTML("beforeend", videoHtmlElement);
+      mediaLink.insertAdjacentElement("beforeend", svgImgContainer);
       baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
+
       return baseArticleElement;
     }
   };
