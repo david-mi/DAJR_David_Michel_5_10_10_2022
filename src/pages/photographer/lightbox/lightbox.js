@@ -15,6 +15,10 @@ closeLightboxButton.addEventListener("click", handleCloseLightbox);
  */
 
 export function handleKeydown({ key }) {
+  if (key === "Escape") {
+    handleMediaDisplay().close();
+  }
+
   if (key === "ArrowRight") {
     handleMediaDisplay().next();
   }
@@ -36,7 +40,7 @@ function getMediaContainerDataId(lightboxMediaContainer) {
 /**
  * Hide previous showed media in lightbox
  * 
- * @return {object} object with methods to show next or previous media from lightbox 
+ * @return {object} object with methods to show next or previous media from lightbox or closing it
  */
 
 function handleMediaDisplay() {
@@ -45,6 +49,10 @@ function handleMediaDisplay() {
   mediasInfosContainers[mediaContainerId].classList.add("hide-media");
 
   return {
+
+    /** Close lightbox */
+
+    close: handleCloseLightbox,
 
     /**
      * Decrement mediaContainer id, show the associated media
