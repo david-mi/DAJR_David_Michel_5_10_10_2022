@@ -133,7 +133,7 @@ header a .logo {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
-  max-width: 700px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,25 +144,27 @@ header a .logo {
 .modal header {
   position: relative;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
 }
-.modal header img {
-  cursor: pointer;
-}
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  margin-bottom: 20px;
-  margin-right: 40px;
-}
-
-.close-form {
+.modal header .close-form {
   position: absolute;
-  top: 20px;
+  top: 16px;
   right: 0;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  width: 30px;
+}
+.modal header .close-form img {
+  width: 100%;
+}
+.modal header h2 {
+  font-size: 45px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  margin-right: 40px;
 }
 
 form {
@@ -173,7 +175,7 @@ form {
 }
 form label {
   color: #312e2e;
-  font-size: 36px;
+  font-size: 24px;
 }
 form div {
   display: flex;
@@ -184,7 +186,7 @@ form div {
 }
 form input {
   width: 100%;
-  height: 68px;
+  height: 50px;
   border: none;
   border-radius: 5px;
   font-family: "DM Sans", sans-serif;
@@ -194,6 +196,8 @@ form input {
 }
 form .contact-button {
   margin-top: 0;
+  font-size: 1rem;
+  height: 60px;
 }
 
 .sort-menu-container {
