@@ -254,6 +254,10 @@ form .contact-button {
   height: 60px;
   padding-top: 10px;
 }
+#medias .media-infos .media-name {
+  font-size: 24px;
+  font-weight: normal;
+}
 #medias .media-infos .likes-count {
   margin-left: auto;
 }

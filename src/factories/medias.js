@@ -77,7 +77,7 @@ function createArticleBaseElement(media, isMediaLiked) {
   const articleMediaInfosElement = document.createElement("div");
   articleMediaInfosElement.classList.add("media-infos");
 
-  const mediaTitleElement = document.createElement("p");
+  const mediaTitleElement = document.createElement("h2");
   mediaTitleElement.classList.add("media-name");
   mediaTitleElement.textContent = title;
 
