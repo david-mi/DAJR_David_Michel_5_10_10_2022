@@ -3,10 +3,10 @@ import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographe
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 
-/**
+/** 
  * @param {mediaType} media 
  * @param {number} index current position in medias array
- * @returns {HTMLElement} html element to display
+ * @returns {HTMLElement} html element to display with either image or video injected in it
  */
 
 export const mediaFactory = (media, index) => {
@@ -47,6 +47,13 @@ export const mediaFactory = (media, index) => {
   return baseArticleElement;
 };
 
+/**
+ * Opens lightbox with the clicked media displayed
+ * 
+ * @param {MouseEvent} event 
+ * @param {number} index current position in medias array
+ */
+
 function handleMediaClick(event, index) {
   event.preventDefault();
   const lightBoxMediaInfosContainerElements = document.querySelectorAll(".media-infos-container");
@@ -56,6 +63,12 @@ function handleMediaClick(event, index) {
   lightboxContainer.classList.remove("hide-media");
   lightBoxMediaInfosContainerElements[index].classList.remove("hide-media");
 }
+
+/**
+ * @param {mediaType} media 
+ * @param {boolean} isMediaLiked if the media has been liked by the user
+ * @returns {HTMLElement} base HTMLElement structure wich will be common to image and video medias
+ */
 
 function createBaseArticleElement(media, isMediaLiked) {
   const { title, likes } = media;
