@@ -9,38 +9,30 @@ import "../data/types.js";
 export const lightBoxFactory = (media, index) => {
   const mediaType = "image" in media ? "image" : "video";
 
+  const mediaContainer = document.createElement("article");
+  mediaContainer.classList.add("media-infos-container", "hide");
+
   const photographerHtmlModels = {
-    image: () => {
-      const linkHtmlContent = `
-      <div class="media-infos-container hide">
-        <img
+    image: (
+      `<img
           data-index=${index}
           src="assets/photographers/${media.photographerId}/${media.image}" 
         />
-        <p class="media-title">${media.title}</p>
-      </div>
-      `;
-
-      return linkHtmlContent;
-    },
-
-    video: () => {
-      const linkHtmlContent = `
-      <div class="media-infos-container hide">
-          <video controls data-index=${index}>
-            <source
-              src="assets/photographers/${media.photographerId}/${media.video}" 
-              type="video/mp4" 
-            />
-            Impossible de charger la vidéo
-          </video>
-          <p class="media-title">${media.title}</p>
-      </div>
-      `;
-
-      return linkHtmlContent;
-    }
+        <p class="media-title">${media.title}</p>`
+    ),
+    video: (
+      `<video controls data-index=${index}>
+          <source
+            src="assets/photographers/${media.photographerId}/${media.video}" 
+            type="video/mp4" 
+          />
+          Impossible de charger la vidéo
+       </video>
+       <p class="media-title">${media.title}</p>`
+    )
   };
 
-  return photographerHtmlModels[mediaType]();
+  mediaContainer.insertAdjacentHTML("beforeend", photographerHtmlModels[mediaType]);
+
+  return mediaContainer;
 };
