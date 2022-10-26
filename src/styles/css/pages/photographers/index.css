@@ -34,7 +34,7 @@ button {
   overflow-y: hidden;
 }
 
-.hide-media {
+.hide {
   display: none !important;
 }
 

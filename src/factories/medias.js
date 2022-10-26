@@ -60,8 +60,8 @@ function handleMediaClick(event, index) {
   document.addEventListener("keydown", handleKeydown);
 
   lightboxMediaContainer.dataset.idcurrent = index;
-  lightboxContainer.classList.remove("hide-media");
-  lightBoxMediaInfosContainerElements[index].classList.remove("hide-media");
+  lightboxContainer.classList.remove("hide");
+  lightBoxMediaInfosContainerElements[index].classList.remove("hide");
 }
 
 /**

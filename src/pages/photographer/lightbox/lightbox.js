@@ -46,7 +46,7 @@ function getMediaContainerDataId(lightboxMediaContainer) {
 function handleMediaDisplay() {
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
-  mediasInfosContainers[mediaContainerId].classList.add("hide-media");
+  mediasInfosContainers[mediaContainerId].classList.add("hide");
 
   return {
 
@@ -67,7 +67,7 @@ function handleMediaDisplay() {
         : mediaContainerId - 1;
 
       lightboxMediaContainer.dataset.idcurrent = previousId;
-      mediasInfosContainers[previousId].classList.remove("hide-media");
+      mediasInfosContainers[previousId].classList.remove("hide");
     },
 
     /**
@@ -81,7 +81,7 @@ function handleMediaDisplay() {
       const nextId = (mediaContainerId + 1) % mediasInfosContainers.length;
 
       lightboxMediaContainer.dataset.idcurrent = nextId;
-      mediasInfosContainers[nextId].classList.remove("hide-media");
+      mediasInfosContainers[nextId].classList.remove("hide");
     }
   };
 }
@@ -95,8 +95,8 @@ function handleMediaDisplay() {
 function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  mediasInfosContainers[mediaContainerId].classList.add("hide-media");
-  lightboxContainer.classList.add("hide-media");
+  mediasInfosContainers[mediaContainerId].classList.add("hide");
+  lightboxContainer.classList.add("hide");
 
   document.removeEventListener("keydown", handleKeydown);
 }

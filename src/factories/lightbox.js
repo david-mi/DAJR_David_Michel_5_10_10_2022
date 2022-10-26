@@ -12,7 +12,7 @@ export const lightBoxFactory = (media, index) => {
   const photographerHtmlModels = {
     image: () => {
       const linkHtmlContent = `
-      <div class="media-infos-container hide-media">
+      <div class="media-infos-container hide">
         <img
           data-index=${index}
           src="assets/photographers/${media.photographerId}/${media.image}" 
@@ -26,7 +26,7 @@ export const lightBoxFactory = (media, index) => {
 
     video: () => {
       const linkHtmlContent = `
-      <div class="media-infos-container hide-media">
+      <div class="media-infos-container hide">
           <video controls data-index=${index}>
             <source
               src="assets/photographers/${media.photographerId}/${media.video}" 
