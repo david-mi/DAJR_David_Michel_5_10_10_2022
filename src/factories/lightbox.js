@@ -16,7 +16,8 @@ export const lightBoxFactory = (media, index) => {
     image: (
       `<img
           data-index=${index}
-          src="assets/photographers/${media.photographerId}/${media.image}" 
+          src="assets/photographers/${media.photographerId}/${media.image}"
+          alt="${media.title}"
         />
         <p class="media-title">${media.title}</p>`
     ),

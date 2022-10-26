@@ -11,7 +11,10 @@ export const photographerFactory = (photographer) => {
     index: () => (
       `<article>
          <a href="/photographer.html?id=${id}">
-           <img src="assets/photographers/${portrait}">
+           <img 
+              src="assets/photographers/${portrait}"
+              alt="${name}"
+           />
            <h2>${name}</h2>
          </a>
          <p class="infos">
@@ -27,7 +30,10 @@ export const photographerFactory = (photographer) => {
           <strong class="location">${city}, ${country}</strong>
           <span class="tagline">${tagline}</span>
         </p>
-        <img src="assets/photographers/${portrait}" alt=${name}>`
+        <img 
+          src="assets/photographers/${portrait}"
+          alt=${name}
+        />`
     )
   };
 

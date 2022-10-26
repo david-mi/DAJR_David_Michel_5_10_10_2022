@@ -27,10 +27,13 @@ export const mediaFactory = (media, index) => {
 
   const photographerMediaHtmlModels = {
     image: (
-      `<img src="assets/photographers/${media.photographerId}/${media.image}" />`
+      `<img 
+          src="assets/photographers/${media.photographerId}/${media.image}"
+          alt="${media.title}"
+       />`
     ),
     video: (
-      `<video>
+      `<video title="${media.title}">
          <source
            src="assets/photographers/${media.photographerId}/${media.video}" 
            type="video/mp4" 
