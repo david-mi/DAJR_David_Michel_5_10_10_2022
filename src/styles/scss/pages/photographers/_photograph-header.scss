@@ -13,7 +13,7 @@
   h1 {
     grid-area: title;
     color: var(--clr-second);
-    font-size: 64px;
+    font-size: clamp(45px, 3vw, 64px);
     margin: 0;
     align-self: center;
   }
@@ -38,6 +38,7 @@
 
   .contact-button {
     grid-area: button;
+    margin-left: 80px;
   }
 
   img {
