@@ -2,6 +2,8 @@ import { likeSvgIcon } from "../icons/index.js";
 import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographer/likes/index.js";
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
+import { toggleDisplayOnElements } from "../pages/photographer/likes/display.js";
+import { header, main } from "../pages/photographer/constants.js";
 
 /** 
  * @param {mediaType} media 
@@ -56,7 +58,7 @@ export const mediaFactory = (media, index) => {
 
 function handleMediaClick(event, index) {
   event.preventDefault();
-  const lightBoxMediaInfosContainerElements = document.querySelectorAll(".media-infos-container");
+  toggleDisplayOnElements([header, main], true);
   document.addEventListener("keydown", handleKeydown);
 
   lightboxMediaContainer.dataset.idcurrent = index;

@@ -37,3 +37,17 @@ export const displayUpdatedTotalLikes = (isMediaLiked) => {
     totalLikesElement.innerText = totalLikesCounts - 1;
   }
 };
+
+/**
+ * Add or remove hide class on header and main Elements
+ * 
+ * @param {HTMLElement[]} elements 
+ * @param {boolean} isAdding if true, add "hide" class, 
+ * if false, remove it
+ */
+
+export const toggleDisplayOnElements = (elements, isAdding) => {
+  elements.forEach(element => {
+    element.classList.toggle("hide", isAdding);
+  });
+};

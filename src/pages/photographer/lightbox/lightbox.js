@@ -1,4 +1,5 @@
-import { lightboxContainer, lightboxMediaContainer } from "../constants.js";
+import { header, main, lightboxContainer, lightboxMediaContainer } from "../constants.js";
+import { toggleDisplayOnElements } from "../likes/display.js";
 
 const nextMediaButton = document.querySelector(".next-media");
 const previousMediaButton = document.querySelector(".previous-media");
@@ -87,16 +88,16 @@ function handleMediaDisplay() {
 }
 
 /**
- * - Hide lightbox medias
- * - Hide lightbox container 
+ * - Hide lightbox
+ * - Hide current displayed media in lightbox
+ * - Display header and main
  * - Remove keydown listener
  */
 
 function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  mediasInfosContainers[mediaContainerId].classList.add("hide");
-  lightboxContainer.classList.add("hide");
+  toggleDisplayOnElements([header, main], false);
 
   document.removeEventListener("keydown", handleKeydown);
 }
