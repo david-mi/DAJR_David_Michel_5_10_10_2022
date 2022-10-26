@@ -13,53 +13,41 @@ export const mediaFactory = (media, index) => {
   let isMediaLiked = false;
   const mediaType = "image" in media ? "image" : "video";
 
-  const baseArticleElement = createArticleBaseElement(media, isMediaLiked);
+  const baseArticleElement = createBaseArticleElement(media, isMediaLiked);
 
-  const photographerHtmlModels = {
-    image: () => {
-      const mediaLink = document.createElement("a");
-      const imgHtmlElement = `<img src="assets/photographers/${media.photographerId}/${media.image}" />`;
-      mediaLink.href = "#";
-      mediaLink.addEventListener("click", (event) => {
-        handleMedias(event, index);
-      });
+  const mediaLink = document.createElement("a");
+  mediaLink.href = "#";
+  mediaLink.addEventListener("click", (event) => {
+    handleMediaClick(event, index);
+  });
 
-      mediaLink.insertAdjacentHTML("beforeend", imgHtmlElement);
-      baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
-      return baseArticleElement;
-    },
-    video: () => {
-      const mediaLink = document.createElement("a");
-      const videoHtmlElement = `
-        <video>
-          <source
-            src="assets/photographers/${media.photographerId}/${media.video}" 
-            type="video/mp4" 
-          />
-          Impossible de charger la vidéo
-        </video>
-      `;
-      mediaLink.href = "#";
-      mediaLink.addEventListener("click", (event) => {
-        handleMedias(event, index);
-      });
+  baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
 
-      const svgImgContainer = document.createElement("img");
-      svgImgContainer.classList.add("svg-img");
-      svgImgContainer.src = "/assets/icons/play.svg";
-
-      mediaLink.insertAdjacentHTML("beforeend", videoHtmlElement);
-      mediaLink.insertAdjacentElement("beforeend", svgImgContainer);
-      baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
-
-      return baseArticleElement;
-    }
+  const photographerMediaHtmlModels = {
+    image: (
+      `<img src="assets/photographers/${media.photographerId}/${media.image}" />`
+    ),
+    video: (
+      `<video>
+         <source
+           src="assets/photographers/${media.photographerId}/${media.video}" 
+           type="video/mp4" 
+         />
+         Impossible de charger la vidéo
+       </video>
+       <img 
+         class="svg-img" 
+         src="/assets/icons/play.svg" 
+       />`
+    )
   };
 
-  return photographerHtmlModels[mediaType]();
+  mediaLink.insertAdjacentHTML("beforeend", photographerMediaHtmlModels[mediaType]);
+
+  return baseArticleElement;
 };
 
-function handleMedias(event, index) {
+function handleMediaClick(event, index) {
   event.preventDefault();
   const lightBoxMediaInfosContainerElements = document.querySelectorAll(".media-infos-container");
   document.addEventListener("keydown", handleKeydown);
@@ -69,7 +57,7 @@ function handleMedias(event, index) {
   lightBoxMediaInfosContainerElements[index].classList.remove("hide-media");
 }
 
-function createArticleBaseElement(media, isMediaLiked) {
+function createBaseArticleElement(media, isMediaLiked) {
   const { title, likes } = media;
 
   const baseArticleElement = document.createElement("article");
