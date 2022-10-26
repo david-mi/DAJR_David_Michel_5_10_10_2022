@@ -6,5 +6,5 @@
 - Mettre en place une application de photographes freelances
 - L'application doit être hautement accessible (navigation au clavier, avec une liseuse d'écran)
 
-[![Lien Heroku](https://img.shields.io/badge/GitHub%20Pages-Visit-blue)](https://david-mi.github.io/DAJR_David_Michel_6_10_10_2022/)
+[![Lien Heroku](https://img.shields.io/badge/Vercel-Visit-blue)](https://dajr-david-michel-p6.vercel.app/)
 
