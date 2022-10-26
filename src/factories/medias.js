@@ -59,11 +59,12 @@ export const mediaFactory = (media, index) => {
 function handleMediaClick(event, index) {
   event.preventDefault();
   toggleDisplayOnElements([header, main], true);
+  const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
   document.addEventListener("keydown", handleKeydown);
 
   lightboxMediaContainer.dataset.idcurrent = index;
-  lightboxContainer.classList.remove("hide");
-  lightBoxMediaInfosContainerElements[index].classList.remove("hide");
+  const currentDisplayedMedia = mediasInfosContainers[index];
+  toggleDisplayOnElements([lightboxContainer, currentDisplayedMedia], false);
 }
 
 /**

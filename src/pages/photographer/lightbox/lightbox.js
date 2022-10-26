@@ -97,6 +97,9 @@ function handleMediaDisplay() {
 function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
+  const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
+
+  toggleDisplayOnElements([currentDisplayedMedia, lightboxContainer], true);
   toggleDisplayOnElements([header, main], false);
 
   document.removeEventListener("keydown", handleKeydown);
