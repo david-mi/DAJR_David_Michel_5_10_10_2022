@@ -26,7 +26,7 @@ export const lightBoxFactory = (media, index) => {
 
     video: () => {
       const linkHtmlContent = `
-      <div class="media-infos-container hide-media">>
+      <div class="media-infos-container hide-media">
           <video controls data-index=${index}>
             <source
               src="assets/photographers/${media.photographerId}/${media.video}" 

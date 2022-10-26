@@ -299,8 +299,10 @@ form .contact-button {
 .lightbox video {
   height: auto;
   max-height: 95%;
-  width: 100%;
-  object-fit: contain;
+  max-width: 100%;
+}
+.lightbox video {
+  max-width: 100%;
 }
 .lightbox button {
   background-color: transparent;
@@ -331,7 +333,7 @@ form .contact-button {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   overflow: hidden;
 }
 .lightbox .lightbox-media-container .media-infos-container {
