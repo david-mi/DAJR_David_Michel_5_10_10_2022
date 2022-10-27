@@ -94,6 +94,7 @@ function createBaseArticleElement(media, isMediaLiked) {
 
   const likeButton = document.createElement("button");
   likeButton.setAttribute("type", "button");
+  likeButton.setAttribute("aria-label", "likes");
   likeButton.classList.add("like-button");
   likeButton.addEventListener("click", () => {
     isMediaLiked = updateMediaLikes(media, isMediaLiked);
