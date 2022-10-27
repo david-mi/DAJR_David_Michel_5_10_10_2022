@@ -1,5 +1,5 @@
 import "../../data/types.js";
-import { displayModal, closeModal } from "../../utils/displayForm.js";
+import { displayModal, closeModal } from "./form/index.js";
 import { getPhotographerData } from "./getters.js";
 import { displayPhotographerData } from "./display.js";
 import { displayTotalLikesAndPrice } from "./likes/index.js";
