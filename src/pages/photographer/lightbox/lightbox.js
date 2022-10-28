@@ -1,5 +1,4 @@
-import { lightboxContainer, lightboxMediaContainer, photographerMediasElement } from "../constants.js";
-import { toggleDisplayOnElements } from "../likes/display.js";
+import { handleCloseLightbox, handleMediaDisplay } from "./index.js";
 
 const nextMediaButton = document.querySelector(".next-media");
 const previousMediaButton = document.querySelector(".previous-media");
@@ -34,85 +33,8 @@ export function handleKeydown({ key }) {
  * @returns {number} data-idcurrent from {@link lightboxMediaContainer} converted to number
  */
 
-function getMediaContainerDataId(lightboxMediaContainer) {
+export function getMediaContainerDataId(lightboxMediaContainer) {
   return Number(lightboxMediaContainer.dataset.idcurrent);
-}
-
-/**
- * Hide previous showed media in lightbox
- * 
- * @return {object} object with methods to show next or previous media from lightbox or closing it
- */
-
-function handleMediaDisplay() {
-  const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
-  mediasInfosContainers[mediaContainerId].classList.add("hide");
-
-  return {
-
-    /** Close lightbox */
-
-    close: handleCloseLightbox,
-
-    /**
-     * Decrement mediaContainer id, show the associated media
-     * 
-     * {@link previousId} will determine the previous wich is the media position in medias list
-     * and store it in mediaContainer data-idcurrent attribute
-     */
-
-    previous() {
-      const previousId = mediaContainerId === 0
-        ? mediasInfosContainers.length - 1
-        : mediaContainerId - 1;
-
-      lightboxMediaContainer.dataset.idcurrent = previousId;
-      mediasInfosContainers[previousId].classList.remove("hide");
-    },
-
-    /**
-     * increment mediaContainer id, show associated media
-     * 
-     * {@link nextId} will determine the previous wich is the media position in medias list
-     * and store it in mediaContainer data-idcurrent attribute
-     */
-
-    next() {
-      const nextId = (mediaContainerId + 1) % mediasInfosContainers.length;
-
-      lightboxMediaContainer.dataset.idcurrent = nextId;
-      mediasInfosContainers[nextId].classList.remove("hide");
-    }
-  };
-}
-
-/**
- * - Removes tabindex attribute on every focusable 
- *   elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
- * - Focus the same media who was focused inside ligtbox in medias sections
- * - Hide lightbox and media wich was displayed inside it
- * - Remove overflow class from body to get vertical scrollbar back
- * - Remove keydown listener
- */
-
-function handleCloseLightbox() {
-  const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
-  const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  const focusableElementsOutsideLightbox = document.querySelectorAll("button:not(.lightbox button), a, select");
-
-  focusableElementsOutsideLightbox.forEach(element => {
-    element.removeAttribute("tabindex");
-  });
-
-  const mediaLinks = document.querySelectorAll("#medias article a");
-  mediaLinks[mediaContainerId].focus();
-
-  const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
-  toggleDisplayOnElements([currentDisplayedMedia, lightboxContainer], true);
-  document.body.classList.remove("overflow");
-
-  document.removeEventListener("keydown", handleKeydown);
 }
 
 
