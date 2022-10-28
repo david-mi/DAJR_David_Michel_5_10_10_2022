@@ -3,7 +3,6 @@ import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographe
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 import { toggleDisplayOnElements } from "../pages/photographer/likes/display.js";
-import { header, main } from "../pages/photographer/constants.js";
 
 /** 
  * @param {mediaType} media 
@@ -53,7 +52,11 @@ export const mediaFactory = (media, index) => {
 };
 
 /**
+ * Adding tabindex attribute at -1 on every focusable 
+ * elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
+ * Add keydown listener to document for lightbox keyboard navigation
  * Opens lightbox with the clicked media displayed
+ * add overflow class to body to remove vertical scrollbar
  * 
  * @param {MouseEvent} event 
  * @param {number} index current position in medias array
@@ -61,13 +64,20 @@ export const mediaFactory = (media, index) => {
 
 function handleMediaClick(event, index) {
   event.preventDefault();
-  toggleDisplayOnElements([header, main], true);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
+  const focusableElementsOutsideLightbox = document.querySelectorAll("button:not(.lightbox button), a, select");
+
+  focusableElementsOutsideLightbox.forEach(element => {
+    element.tabIndex = -1;
+  });
+
   document.addEventListener("keydown", handleKeydown);
 
   lightboxMediaContainer.dataset.idcurrent = index;
   const currentDisplayedMedia = mediasInfosContainers[index];
   toggleDisplayOnElements([lightboxContainer, currentDisplayedMedia], false);
+
+  document.body.classList.add("overflow");
 }
 
 /**

@@ -1,4 +1,4 @@
-import { header, main, lightboxContainer, lightboxMediaContainer } from "../constants.js";
+import { lightboxContainer, lightboxMediaContainer } from "../constants.js";
 import { toggleDisplayOnElements } from "../likes/display.js";
 
 const nextMediaButton = document.querySelector(".next-media");
@@ -88,19 +88,25 @@ function handleMediaDisplay() {
 }
 
 /**
+ * - Removes tabindex attribute on every focusable 
+ *   elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
  * - Hide lightbox
  * - Hide current displayed media in lightbox
- * - Display header and main
  * - Remove keydown listener
  */
 
 function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
+  const focusableElementsOutsideLightbox = document.querySelectorAll("button:not(.lightbox button), a, select");
 
+  focusableElementsOutsideLightbox.forEach(element => {
+    element.removeAttribute("tabindex");
+  });
+
+  const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
   toggleDisplayOnElements([currentDisplayedMedia, lightboxContainer], true);
-  toggleDisplayOnElements([header, main], false);
+  document.body.classList.remove("overflow");
 
   document.removeEventListener("keydown", handleKeydown);
 }
