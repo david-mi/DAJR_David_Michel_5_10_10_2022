@@ -1,4 +1,4 @@
-import { lightboxContainer, lightboxMediaContainer } from "../constants.js";
+import { lightboxContainer, lightboxMediaContainer, photographerMediasElement } from "../constants.js";
 import { toggleDisplayOnElements } from "../likes/display.js";
 
 const nextMediaButton = document.querySelector(".next-media");
@@ -90,8 +90,9 @@ function handleMediaDisplay() {
 /**
  * - Removes tabindex attribute on every focusable 
  *   elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
- * - Hide lightbox
- * - Hide current displayed media in lightbox
+ * - Focus the same media who was focused inside ligtbox in medias sections
+ * - Hide lightbox and media wich was displayed inside it
+ * - Remove overflow class from body to get vertical scrollbar back
  * - Remove keydown listener
  */
 
@@ -103,6 +104,9 @@ function handleCloseLightbox() {
   focusableElementsOutsideLightbox.forEach(element => {
     element.removeAttribute("tabindex");
   });
+
+  const mediaLinks = document.querySelectorAll("#medias article a");
+  mediaLinks[mediaContainerId].focus();
 
   const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
   toggleDisplayOnElements([currentDisplayedMedia, lightboxContainer], true);
