@@ -42,7 +42,8 @@ export const mediaFactory = (media, index) => {
        </video>
        <img 
          class="svg-img" 
-         src="/assets/icons/play.svg" 
+         src="/assets/icons/play.svg"
+         alt="" 
        />`
     )
   };
