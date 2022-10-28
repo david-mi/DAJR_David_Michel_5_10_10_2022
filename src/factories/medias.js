@@ -18,6 +18,7 @@ export const mediaFactory = (media, index) => {
 
   const mediaLink = document.createElement("a");
   mediaLink.href = "#";
+  mediaLink.title = media.title;
   mediaLink.addEventListener("click", (event) => {
     handleMediaClick(event, index);
   });
