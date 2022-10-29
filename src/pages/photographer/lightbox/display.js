@@ -83,7 +83,7 @@ export function handleCloseLightbox() {
     element.removeAttribute("tabindex");
   });
 
-  focusMediaFromLightbox();
+  focusMediaFromLightbox(mediaContainerId);
 
   const currentDisplayedMedia = mediasInfosContainers[mediaContainerId];
   toggleDisplayOnElements([currentDisplayedMedia, lightboxContainer], true);
@@ -92,7 +92,13 @@ export function handleCloseLightbox() {
   document.removeEventListener("keydown", handleKeydown);
 }
 
-function focusMediaFromLightbox() {
+/**
+ * Focus the same media who was focused inside ligtbox in medias sections
+ * 
+ * @param {number} mediaContainerId id of current displayed media
+ */
+
+function focusMediaFromLightbox(mediaContainerId) {
   const mediaLinks = document.querySelectorAll("#medias article a");
   mediaLinks[mediaContainerId].focus();
 }

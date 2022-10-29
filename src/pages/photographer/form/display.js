@@ -11,12 +11,12 @@ const modal = document.getElementById("contact_modal");
  */
 
 export const displayModal = () => {
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
   modal.classList.add("display-modal");
 
   const closeFormButton = document.querySelector(".close-form");
   closeFormButton.focus();
 
+  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
   focusableElementsOutsideForm.forEach(element => {
     element.tabIndex = -1;
   });
@@ -33,9 +33,9 @@ export const displayModal = () => {
  */
 
 export const closeModal = () => {
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
   modal.classList.remove("display-modal");
 
+  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
   focusableElementsOutsideForm.forEach(element => {
     element.removeAttribute("tabindex");
   });
