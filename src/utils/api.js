@@ -1,3 +1,5 @@
+import "../data/types.js";
+
 /**
  * Fetch data from photographers.json
  * 
@@ -5,7 +7,7 @@
  */
 
 export const getPhotographersApiData = async () => {
-  const response = await fetch("data/photographers.json");
+  const response = await fetch("photographers.json");
   const photographers = await response.json();
   return photographers;
 };

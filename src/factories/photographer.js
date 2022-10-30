@@ -10,9 +10,9 @@ export const photographerFactory = (photographer) => {
   const photographerHtmlCard = {
     index: () => (
       `<article>
-         <a href="/src/photographer.html?id=${id}" title=${name}>
+         <a href="./photographer.html?id=${id}" title=${name}>
            <img 
-              src="/assets/photographers/${portrait}"
+              src="./assets/photographers/${portrait}"
               alt="${name}"
            />
            <h2>${name}</h2>
@@ -31,7 +31,7 @@ export const photographerFactory = (photographer) => {
           <span class="tagline">${tagline}</span>
         </p>
         <img 
-          src="/assets/photographers/${portrait}"
+          src="./assets/photographers/${portrait}"
           alt=${name}
         />`
     )
