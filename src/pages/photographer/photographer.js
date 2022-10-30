@@ -1,3 +1,4 @@
+import "../../styles/scss/pages/photographers/index.scss";
 import "../../data/types.js";
 import { displayModal, closeModal } from "./form/index.js";
 import { getPhotographerData } from "./getters.js";
