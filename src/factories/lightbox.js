@@ -16,7 +16,7 @@ export const lightBoxFactory = (media, index) => {
     image: (
       `<img
           data-index=${index}
-          src="assets/photographers/${media.photographerId}/${media.image}"
+          src="/assets/photographers/${media.photographerId}/${media.image}"
           alt="${media.title}"
         />
         <p class="media-title">${media.title}</p>`
@@ -24,7 +24,7 @@ export const lightBoxFactory = (media, index) => {
     video: (
       `<video controls data-index=${index}>
           <source
-            src="assets/photographers/${media.photographerId}/${media.video}" 
+            src="/assets/photographers/${media.photographerId}/${media.video}" 
             type="video/mp4" 
           />
           Impossible de charger la vidéo

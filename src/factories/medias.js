@@ -28,14 +28,14 @@ export const mediaFactory = (media, index) => {
   const photographerMediaHtmlModels = {
     image: (
       `<img 
-          src="assets/photographers/${media.photographerId}/${media.image}"
+          src="/assets/photographers/${media.photographerId}/${media.image}"
           alt="${media.title}"
        />`
     ),
     video: (
       `<video title="${media.title}">
          <source
-           src="assets/photographers/${media.photographerId}/${media.video}" 
+           src="/assets/photographers/${media.photographerId}/${media.video}" 
            type="video/mp4" 
          />
          Impossible de charger la vidéo
