@@ -3,6 +3,7 @@ import { updateMediaLikes, displayUpdatedTotalLikes } from "../pages/photographe
 import { lightboxContainer, lightboxMediaContainer } from "../pages/photographer/constants.js";
 import { handleKeydown } from "../pages/photographer/lightbox/lightbox.js";
 import { toggleDisplayOnElements } from "../pages/photographer/likes/display.js";
+import { videoFactory, imageFactory } from "./index.js";
 
 /** 
  * @param {mediaType} media 
@@ -23,32 +24,12 @@ export const mediaFactory = (media, index) => {
     handleMediaClick(event, index);
   });
 
+  const photographerMediaHtmlModel = mediaType === "image"
+    ? imageFactory(media, index).imageMedia
+    : videoFactory(media, index).videoMedia;
+
   baseArticleElement.insertAdjacentElement("afterbegin", mediaLink);
-
-  const photographerMediaHtmlModels = {
-    image: (
-      `<img 
-          src="assets/photographers/${media.photographerId}/${media.image}"
-          alt="${media.title}"
-       >`
-    ),
-    video: (
-      `<video title="${media.title}">
-         <source
-           src="./assets/photographers/${media.photographerId}/${media.video}" 
-           type="video/mp4" 
-         >
-         Impossible de charger la vidéo
-       </video>
-       <img 
-         class="svg-img" 
-         src="/assets/icons/play.svg"
-         alt="" 
-       >`
-    )
-  };
-
-  mediaLink.insertAdjacentHTML("beforeend", photographerMediaHtmlModels[mediaType]);
+  mediaLink.insertAdjacentHTML("beforeend", photographerMediaHtmlModel);
 
   return baseArticleElement;
 };
