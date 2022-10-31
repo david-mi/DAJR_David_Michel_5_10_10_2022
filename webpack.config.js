@@ -46,12 +46,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/index.html"),
-      chunks: ["index"]
+      chunks: ["index"],
+      scriptLoading: "module"
     }),
     new HtmlWebpackPlugin({
       filename: "photographer.html",
       template: path.resolve(__dirname, "src/photographer.html"),
-      chunks: ["photographer"]
+      chunks: ["photographer"],
+      scriptLoading: "module"
     })
   ],
   devtool: "source-map",
