@@ -30,21 +30,21 @@ export const mediaFactory = (media, index) => {
       `<img 
           src="assets/photographers/${media.photographerId}/${media.image}"
           alt="${media.title}"
-       />`
+       >`
     ),
     video: (
       `<video title="${media.title}">
          <source
            src="./assets/photographers/${media.photographerId}/${media.video}" 
            type="video/mp4" 
-         />
+         >
          Impossible de charger la vidéo
        </video>
        <img 
          class="svg-img" 
          src="/assets/icons/play.svg"
          alt="" 
-       />`
+       >`
     )
   };
 

@@ -14,7 +14,7 @@ export const photographerFactory = (photographer) => {
            <img 
               src="./assets/photographers/${portrait}"
               alt="${name}"
-           />
+           >
            <h2>${name}</h2>
          </a>
          <p class="infos">
@@ -33,7 +33,7 @@ export const photographerFactory = (photographer) => {
         <img 
           src="./assets/photographers/${portrait}"
           alt=${name}
-        />`
+        >`
     )
   };
 

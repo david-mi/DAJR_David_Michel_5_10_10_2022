@@ -18,7 +18,7 @@ export const lightBoxFactory = (media, index) => {
           data-index=${index}
           src="./assets/photographers/${media.photographerId}/${media.image}"
           alt="${media.title}"
-        />
+        >
         <p class="media-title">${media.title}</p>`
     ),
     video: (
@@ -26,7 +26,7 @@ export const lightBoxFactory = (media, index) => {
           <source
             src="./assets/photographers/${media.photographerId}/${media.video}" 
             type="video/mp4" 
-          />
+          >
           Impossible de charger la vidéo
        </video>
        <p class="media-title">${media.title}</p>`
