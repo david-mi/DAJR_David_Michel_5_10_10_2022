@@ -1,4 +1,4 @@
-import "../../styles/scss/pages/home/index.scss";
+import "../../styles/pages/home/index.scss";
 import { displayIndexData } from "./display.js";
 import { getPhotographersApiData } from "../../utils/api.js";
 import "../../data/types.js";
