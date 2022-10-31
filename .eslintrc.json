@@ -13,6 +13,12 @@
         "quotes": [
             "warn",
             "double"
+        ],
+        "no-duplicate-imports": [
+            "error",
+            {
+                "includeExports": true
+            }
         ]
     }
 }
