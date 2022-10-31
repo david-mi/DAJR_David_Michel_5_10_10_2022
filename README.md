@@ -6,5 +6,13 @@
 - Mettre en place une application de photographes freelances
 - L'application doit être hautement accessible (navigation au clavier, avec une liseuse d'écran)
 
+## Installation et mise en route
+
+- Se mettre à la racine du répertoire
+- `npm install` pour installer toutes les dépendances nécessaires
+- `npm start` pour lancer le serveur **webpack** sur le port **4000**  
+  
+ <br/>
+
 [![Lien Heroku](https://img.shields.io/badge/Vercel-Visit-blue)](https://dajr-david-michel-p6.vercel.app/)
 
