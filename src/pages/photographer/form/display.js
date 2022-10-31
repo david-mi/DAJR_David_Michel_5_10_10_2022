@@ -16,7 +16,7 @@ export const displayModal = () => {
   const closeFormButton = document.querySelector(".close-form");
   closeFormButton.focus();
 
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
+  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select, video");
   focusableElementsOutsideForm.forEach(element => {
     element.tabIndex = -1;
   });
@@ -35,7 +35,7 @@ export const displayModal = () => {
 export const closeModal = () => {
   modal.classList.remove("display-modal");
 
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select");
+  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select, video");
   focusableElementsOutsideForm.forEach(element => {
     element.removeAttribute("tabindex");
   });
