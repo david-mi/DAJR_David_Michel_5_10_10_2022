@@ -1,4 +1,5 @@
 import { handleCloseLightbox, handleMediaDisplay } from "./index.js";
+import { handleModalFocusTrap } from "../../../utils/focusTrap.js";
 
 const nextMediaButton = document.querySelector(".next-media");
 const previousMediaButton = document.querySelector(".previous-media");
@@ -11,21 +12,22 @@ closeLightboxButton.addEventListener("click", handleCloseLightbox);
 /**
  * Handle pressed keys to trigger next or previous media in lightbox
  * 
- * @param {KeyboardEvent} key  name of pressed key
+ * @param {KeyboardEvent}
  */
 
-export function handleKeydown({ key }) {
-  if (key === "Escape") {
-    handleMediaDisplay().close();
+export function handleKeydown(event) {
+  const { key } = event;
+  const keysHandler = {
+    Tab: () => handleModalFocusTrap(event, ".lightbox"),
+    Escape: () => handleMediaDisplay().close(),
+    ArrowRight: () => handleMediaDisplay().next(),
+    ArrowLeft: () => handleMediaDisplay().previous()
+  };
+
+  if (key in keysHandler) {
+    keysHandler[event.key]();
   }
 
-  if (key === "ArrowRight") {
-    handleMediaDisplay().next();
-  }
-
-  if (key === "ArrowLeft") {
-    handleMediaDisplay().previous();
-  }
 }
 
 /**
