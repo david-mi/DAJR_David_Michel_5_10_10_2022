@@ -66,8 +66,6 @@ export function handleMediaDisplay() {
 }
 
 /**
- * - Removes tabindex attribute on every focusable 
- *   elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
  * - Focus the same media who was focused inside ligtbox in medias sections
  * - Hide lightbox and media wich was displayed inside it
  * - Remove overflow class from body to get vertical scrollbar back
@@ -77,11 +75,6 @@ export function handleMediaDisplay() {
 export function handleCloseLightbox() {
   const mediaContainerId = getMediaContainerDataId(lightboxMediaContainer);
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  const focusableElementsOutsideLightbox = document.querySelectorAll("button:not(.lightbox button), a, select");
-
-  focusableElementsOutsideLightbox.forEach(element => {
-    element.removeAttribute("tabindex");
-  });
 
   focusMediaFromLightbox(mediaContainerId);
 

@@ -54,8 +54,6 @@ export const mediaFactory = (media, index) => {
 };
 
 /**
- * Adding tabindex attribute at -1 on every focusable 
- * elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
  * Add keydown listener to document for lightbox keyboard navigation
  * Opens lightbox with the clicked media displayed
  * add overflow class to body to remove vertical scrollbar
@@ -67,11 +65,6 @@ export const mediaFactory = (media, index) => {
 function handleMediaClick(event, index) {
   event.preventDefault();
   const mediasInfosContainers = document.querySelectorAll(".media-infos-container");
-  const focusableElementsOutsideLightbox = document.querySelectorAll("button:not(.lightbox button), a, select");
-
-  focusableElementsOutsideLightbox.forEach(element => {
-    element.tabIndex = -1;
-  });
 
   document.addEventListener("keydown", handleKeydown);
 

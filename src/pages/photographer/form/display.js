@@ -18,8 +18,6 @@ const handleFormFocusTrap = (event) => {
  * - Changing display mode of contact modal to block
  * - Add document eventlistener attached to {@link handleFormFocusTrap}
  * - Put focus to close button if using a keyboard to navigate
- * - Adding tabindex attribute at -1 on every focusable 
- *   elements who aren't inside form modal {@link focusableElementsOutsideForm}
  * - Add overflow class to body to remove vertical scrollbar
  */
 
@@ -29,11 +27,6 @@ export const displayModal = () => {
 
   const closeFormButton = document.querySelector(".close-form");
   closeFormButton.focus();
-
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select, video");
-  focusableElementsOutsideForm.forEach(element => {
-    element.tabIndex = -1;
-  });
 
   document.body.classList.add("overflow");
 };
@@ -48,12 +41,6 @@ export const displayModal = () => {
 export const closeModal = () => {
   formModal.classList.remove("display-modal");
   document.removeEventListener("keydown", handleFormFocusTrap);
-
-  const focusableElementsOutsideForm = document.querySelectorAll("button:not(.modal button), a, select, video");
-  focusableElementsOutsideForm.forEach(element => {
-    element.removeAttribute("tabindex");
-  });
-
   form.reset();
   document.body.classList.remove("overflow");
 };
