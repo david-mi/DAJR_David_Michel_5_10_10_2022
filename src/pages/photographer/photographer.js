@@ -8,12 +8,12 @@ import { handleSubmit, displayPhotographerNameToForm } from "../photographer/for
 import { sortCallbacks, displaySortedMedias } from "./sort/index.js";
 import { form } from "./constants.js";
 
-const contactButton = document.querySelector(".contact-button");
-const closeModalImg = document.querySelector(".modal header button");
 const sortSelectMenu = document.querySelector("select");
+const contactButton = document.querySelector(".contact-button");
+const closeModalButton = document.querySelector(".modal header button");
 
 contactButton.addEventListener("click", displayModal);
-closeModalImg.addEventListener("click", closeModal);
+closeModalButton.addEventListener("click", closeModal);
 form.addEventListener("submit", handleSubmit);
 
 /**
