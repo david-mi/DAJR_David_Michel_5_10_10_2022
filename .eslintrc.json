@@ -15,7 +15,7 @@
             "double"
         ],
         "no-duplicate-imports": [
-            "error",
+            "warn",
             {
                 "includeExports": true
             }
