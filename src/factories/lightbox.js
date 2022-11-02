@@ -1,4 +1,5 @@
 import "../data/types.js";
+import { videoFactory, imageFactory } from "./index.js";
 
 /**
  * @param {mediaType} media 
@@ -12,28 +13,11 @@ export const lightBoxFactory = (media, index) => {
   const mediaContainer = document.createElement("article");
   mediaContainer.classList.add("media-infos-container", "hide");
 
-  const photographerHtmlModels = {
-    image: (
-      `<img
-          data-index=${index}
-          src="./assets/photographers/${media.photographerId}/${media.image}"
-          alt="${media.title}"
-        >
-        <p class="media-title">${media.title}</p>`
-    ),
-    video: (
-      `<video controls data-index=${index}>
-          <source
-            src="./assets/photographers/${media.photographerId}/${media.video}" 
-            type="video/mp4" 
-          >
-          Impossible de charger la vidéo
-       </video>
-       <p class="media-title">${media.title}</p>`
-    )
-  };
+  const photographerLigthboxHtmlModel = mediaType === "image"
+    ? imageFactory(media, index).imageLightbox
+    : videoFactory(media, index).videoLightbox;
 
-  mediaContainer.insertAdjacentHTML("beforeend", photographerHtmlModels[mediaType]);
+  mediaContainer.insertAdjacentHTML("beforeend", photographerLigthboxHtmlModel);
 
   return mediaContainer;
 };
