@@ -12,6 +12,13 @@
     color: white;
     padding: 15px 20px;
     border: none;
+    transition: 300ms ease-in-out;
+
+    &:focus,
+    &:hover {
+      background-color: var(--clr-second);
+    }
+
     option {
       height: 30px;
       padding: 20px;

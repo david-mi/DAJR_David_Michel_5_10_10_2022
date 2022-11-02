@@ -63,7 +63,7 @@
 
       &:focus svg path,
       &:hover svg path {
-        fill: #d3573c;
+        fill: var(--clr-second);
       }
     }
   }
