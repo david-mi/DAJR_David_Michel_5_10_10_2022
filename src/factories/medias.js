@@ -58,7 +58,8 @@ export const mediaFactory = (media, index) => {
  * elements who aren't inside lightbox {@link focusableElementsOutsideLightbox}
  * Add keydown listener to document for lightbox keyboard navigation
  * Opens lightbox with the clicked media displayed
- * add overflow class to body to remove vertical scrollbar
+ * Put focus on next media button
+ * Add overflow class to body to remove vertical scrollbar
  * 
  * @param {MouseEvent} event 
  * @param {number} index current position in medias array
@@ -78,6 +79,9 @@ function handleMediaClick(event, index) {
   lightboxMediaContainer.dataset.idcurrent = index;
   const currentDisplayedMedia = mediasInfosContainers[index];
   toggleDisplayOnElements([lightboxContainer, currentDisplayedMedia], false);
+
+  const nextMediaButton = document.querySelector(".next-media");
+  nextMediaButton.focus();
 
   document.body.classList.add("overflow");
 }
