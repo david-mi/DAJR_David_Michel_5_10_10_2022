@@ -10,10 +10,10 @@ export const photographerFactory = (photographer) => {
   const photographerHtmlCard = {
     index: () => (
       `<article>
-         <a href="./photographer.html?id=${id}" title=${name}>
+         <a href="./photographer.html?id=${id}" title="page photographe">
            <img 
               src="./assets/photographers/${portrait}"
-              alt="${name}"
+              alt=""
            >
            <h2>${name}</h2>
          </a>

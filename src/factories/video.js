@@ -10,7 +10,7 @@ import "./types.js";
 export const videoFactory = (media, index) => {
   return {
     videoMedia: (
-      `<video title="${media.title}">
+      `<video title="vidéo ${media.title}">
          <source
            src="./assets/photographers/${media.photographerId}/${media.video}" 
            type="video/mp4" 
@@ -24,7 +24,7 @@ export const videoFactory = (media, index) => {
        >`
     ),
     videoLightbox: (
-      `<video controls data-index=${index}>
+      `<video controls data-index=${index} title="vidéo ${media.title}">
           <source
             src="./assets/photographers/${media.photographerId}/${media.video}" 
             type="video/mp4" 
