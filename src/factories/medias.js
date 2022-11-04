@@ -91,10 +91,16 @@ function createBaseArticleElement(media, isMediaLiked) {
 
   const likeButton = document.createElement("button");
   likeButton.setAttribute("type", "button");
-  likeButton.setAttribute("aria-label", "likes");
   likeButton.classList.add("like-button");
+  likeButton.setAttribute("aria-label", "likes");
+  likeButton.setAttribute("aria-pressed", "false");
   likeButton.addEventListener("click", () => {
     isMediaLiked = updateMediaLikes(media, isMediaLiked);
+    if (isMediaLiked) {
+      likeButton.setAttribute("aria-pressed", "true");
+    } else {
+      likeButton.setAttribute("aria-pressed", "false");
+    }
     likesCountElement.innerText = media.likes;
     displayUpdatedTotalLikes(isMediaLiked);
   });
