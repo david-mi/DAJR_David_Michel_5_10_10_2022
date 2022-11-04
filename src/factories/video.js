@@ -31,7 +31,7 @@ export const videoFactory = (media, index) => {
           >
           Impossible de charger la vidéo
        </video>
-       <p class="media-title">${media.title}</p>`
+       <h2 class="media-title">${media.title}</h2>`
     )
   };
 };
