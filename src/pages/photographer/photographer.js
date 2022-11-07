@@ -17,7 +17,8 @@ closeModalButton.addEventListener("click", closeModal);
 form.addEventListener("submit", handleSubmit);
 
 /**
- * Gets called on page load
+ * Get photographer data
+ * Set document title to photographer name
  * Add listener to select sorting menu
  * Display photographer data in the dom
  * Display photographer name in the form
@@ -27,6 +28,7 @@ form.addEventListener("submit", handleSubmit);
 
 const init = async () => {
   const { photographer, photographerMedias } = await getPhotographerData();
+  document.title = photographer.name;
   sortSelectMenu.addEventListener("change", ({ target }) => {
     const sortOption = target.value;
     const sortCallback = sortCallbacks[sortOption];
