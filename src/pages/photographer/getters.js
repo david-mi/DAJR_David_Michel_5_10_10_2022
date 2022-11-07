@@ -25,6 +25,11 @@ const getPhotographerId = () => {
  * get photographer id from url params
  * get photographer associated infos and medias 
  * if any error is thrown, redirects to index.html
+ * 
+ * @return {Promise<{
+ * photographer: photographerType,
+ * photographerMedias: mediaType[]
+ * }>}
  */
 
 export const getPhotographerData = async () => {
