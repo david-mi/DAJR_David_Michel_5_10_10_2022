@@ -11,7 +11,7 @@ const photographHeader = document.querySelector(".photograph-header");
 
 export const displayPhotographerData = (photographer) => {
   const photographerHTMLModel = photographerFactory(photographer);
-  photographHeader.insertAdjacentHTML("afterbegin", photographerHTMLModel.photographer());
+  photographHeader.insertAdjacentHTML("afterbegin", photographerHTMLModel.photographer);
 };
 
 /**

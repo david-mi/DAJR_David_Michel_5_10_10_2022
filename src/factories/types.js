@@ -1,8 +1,8 @@
 /**
  * @typedef photographerFactory
  * @type {object}
- * @property {() => string} index
- * @property {() => string} photographer
+ * @property {string} index html template string with photographer structure for index page
+ * @property {string} photographer html template string with photographer structure for photographer page
  */
 
 /**

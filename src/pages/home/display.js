@@ -10,6 +10,6 @@ export const displayIndexData = (photographers) => {
 
   photographers.forEach((photographer) => {
     const photographerHTMLModel = photographerFactory(photographer);
-    photographersSection.insertAdjacentHTML("beforeend", photographerHTMLModel.index());
+    photographersSection.insertAdjacentHTML("beforeend", photographerHTMLModel.index);
   });
 };
