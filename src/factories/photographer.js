@@ -10,7 +10,7 @@ export const photographerFactory = (photographer) => {
   const photographerHtmlCard = {
     index: () => (
       `<article>
-         <a href="./photographer.html?id=${id}" title="page photographe">
+         <a href="./photographer.html?id=${id}" aria-label="page de ${name}">
            <img 
               src="./assets/photographers/${portrait}"
               alt=""

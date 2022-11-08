@@ -19,7 +19,6 @@ export const mediaFactory = (media, index) => {
 
   const mediaLink = document.createElement("a");
   mediaLink.href = "#";
-  mediaLink.title = "ouvrir lightbox";
   mediaLink.addEventListener("click", (event) => {
     handleMediaClick(event, index);
   });

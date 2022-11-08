@@ -12,14 +12,14 @@ export const imageFactory = (media, index) => {
     imageMedia: (
       `<img 
           src="assets/photographers/${media.photographerId}/${media.image}"
-          alt="${media.title} vue miniature"
+          alt="${media.title} ouvrir lightbox"
        >`
     ),
     imageLightbox: (
       `<img
           data-index=${index}
           src="./assets/photographers/${media.photographerId}/${media.image}"
-          alt="${media.title} vue complète"
+          alt="${media.title}"
         >
         <h2 class="media-title">${media.title}</h2>`
     )
