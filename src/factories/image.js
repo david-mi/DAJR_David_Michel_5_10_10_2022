@@ -12,7 +12,7 @@ export const imageFactory = (media, index) => {
     imageMedia: (
       `<img 
           src="assets/photographers/${media.photographerId}/${media.image}"
-          alt="${media.title} ouvrir lightbox"
+          alt="${media.title}"
        >`
     ),
     imageLightbox: (

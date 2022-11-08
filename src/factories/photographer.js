@@ -1,7 +1,9 @@
+import "./types.js";
+import "../data/types.js";
+
 /**
  * @param {photographerType} photographer 
- * @param {number} index current position in medias array
- * @returns {string} html string to display
+ * @returns {photographerFactory} html string to display
  */
 
 export const photographerFactory = (photographer) => {
@@ -13,7 +15,7 @@ export const photographerFactory = (photographer) => {
          <a href="./photographer.html?id=${id}" aria-label="page de ${name}">
            <img 
               src="./assets/photographers/${portrait}"
-              alt=""
+              alt="${name}"
            >
            <h2>${name}</h2>
          </a>
