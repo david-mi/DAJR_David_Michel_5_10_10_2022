@@ -30,3 +30,8 @@ button {
   transition: 300ms ease-in-out;
   cursor: pointer;
 }
+
+a:focus,
+button:focus {
+  outline-color: var(--clr-second);
+}
