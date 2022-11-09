@@ -34,7 +34,7 @@ export const photographerFactory = (photographer) => {
         </p>
         <img 
           src="./assets/photographers/${portrait}"
-          alt=${name}
+          alt="${name}"
         >`
     )
   };
